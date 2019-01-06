@@ -1,0 +1,10 @@
+react-native upgrade && react-native link
+
+https://www.resource-generator.com
+
+size
+===================
+splash screen => 1280px*1920px
+app icon => 64px*64px
+
+adjustResize => adjustPan in AndroidManifest.xml

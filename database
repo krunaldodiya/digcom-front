@@ -1,0 +1,96 @@
+---------------------------------------
+heroku
+---------------------------------------
+database => socialstock-prisma-db
+backend => socialstock-yoga-server
+
+----------------------------
+channel_reviews
+----------------------------
+    id - primary key  
+    title  
+    description  
+    ratings  
+    channel_id  
+    reviewer_id  
+    created_at  
+    updated_at  
+
+----------------------------
+channel_subscriptions
+----------------------------
+    id - primary key  
+    channel_id  
+    subscriber_id  
+    created_at  
+    updated_at  
+
+----------------------------
+channels
+----------------------------
+    id - primary key  
+    type  regular or premium
+    segment  intraday or swing
+    title  
+    description  
+    image  
+    owner_id  
+    created_at  
+    updated_at  
+    posts 
+    channel_subscriptions: [ChannelSubscription!]!
+
+
+----------------------------
+post_comments
+----------------------------
+    id - primary key  
+    comment  
+    user_id  
+    post_id  
+    created_at  
+    updated_at  
+
+----------------------------
+post_statuses
+----------------------------
+    id - primary key  
+    post_id  
+    trigger  
+    target  
+    stoploss  
+    status  
+    created_at  
+    updated_at  
+
+----------------------------
+posts
+----------------------------
+    id - primary key  
+    description  
+    owner_id  
+    channel_id  
+    stock_exchange  
+    stock_symbol  
+    stock_name  
+    created_at  
+    updated_at  
+    charge
+    signal  
+
+----------------------------
+users
+----------------------------
+    id - primary key  
+    name  
+    email  
+    type  
+    gender
+    dob
+    experience
+    sebi_registration_number  
+    city  
+    state  
+    avatar  
+    created_at  
+    updated_at  

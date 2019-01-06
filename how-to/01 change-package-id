@@ -1,0 +1,29 @@
+For Android:
+
+Manually change it in android/app/src/main/java/com/PROJECT_NAME/MainActivity.java:
+package com.marusamaj;
+
+In android/app/src/main/java/com/PROJECT_NAME/MainApplication.java:
+package com.marusamaj;
+
+In android/app/src/main/AndroidManifest.xml:
+package="com.marusamaj"
+
+In android/app/build.gradle:
+applicationId "com.marusamaj"
+
+Gradle' cleaning in the end (in /android folder):
+./gradlew clean
+
+
+For iOS:
+
+Change the Bundle Id in Xcode.
+
+<com.marusamaj> > General > Bundle Identifier
+DisplayName marusamaj
+BundleIdentifier com.marusamaj
+
+<com.marusamaj-tvOS> > General > Bundle Identifier
+DisplayName marusamaj-tvOS
+BundleIdentifier com.marusamaj

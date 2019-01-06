@@ -1,0 +1,12 @@
+https://github.com/ivpusic/react-native-image-crop-picker
+
+android/build.gradle
+-------
+allprojects {
+    repositories {
+        ......
+        maven { url 'https://maven.google.com' }
+        maven { url "https://jitpack.io" }
+        ......
+    }
+}
