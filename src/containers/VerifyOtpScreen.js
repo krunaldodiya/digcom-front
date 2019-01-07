@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import VerifyOtp from "../components/Auth/VerifyOtp";
+import VerifyOtp from "../components/Otp/VerifyOtp";
 
 const mapStateToProps = state => ({
   loading: state.loading,

@@ -6,6 +6,8 @@ import NoNetwork from "./src/components/NoNetwork";
 // screens
 import GetStartedScreen from "./src/containers/GetStartedScreen";
 import RequestOtpScreen from "./src/containers/RequestOtpScreen";
+import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
+
 // import AccountListScreen from "./src/containers/AccountListScreen";
 // import AddCommunityScreen from "./src/containers/AddCommunityScreen";
 // import AddRelationScreen from "./src/containers/AddRelationScreen";
@@ -18,7 +20,6 @@ import RequestOtpScreen from "./src/containers/RequestOtpScreen";
 // import SettingsScreen from "./src/containers/SettingsScreen";
 // import TabsScreen from "./src/containers/TabsScreen";
 // import UserDetailScreen from "./src/containers/UserDetailScreen";
-// import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
 // libs & services
 import { getInitialScreen } from "./src/libs/screen";
 import { getAuthMobile } from "./src/services";
@@ -30,6 +31,7 @@ const getAppNavigator = initialRouteName => {
     {
       GetStartedScreen: { screen: GetStartedScreen },
       RequestOtpScreen: { screen: RequestOtpScreen },
+      VerifyOtpScreen: { screen: VerifyOtpScreen },
       // TabsScreen: { screen: TabsScreen },
       // ManageProfileScreen: { screen: ManageProfileScreen },
       // ManageCommunityScreen: { screen: ManageCommunityScreen },
@@ -41,7 +43,6 @@ const getAppNavigator = initialRouteName => {
       // AvatarScreen: { screen: AvatarScreen },
       // SearchScreen: { screen: SearchScreen },
       // SettingsScreen: { screen: SettingsScreen },
-      // VerifyOtpScreen: { screen: VerifyOtpScreen },
       // AccountListScreen: { screen: AccountListScreen },
     },
     {
