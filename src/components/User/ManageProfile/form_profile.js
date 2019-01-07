@@ -1,7 +1,7 @@
 import { Form, Input, Item, View } from "native-base";
 import React from "react";
 import { TextInputMask } from "react-native-masked-text";
-import Switch from "../shared/Switch";
+import Switch from "../Shared/Switch";
 import styles from "./styles";
 
 class ProfileForm extends React.Component {

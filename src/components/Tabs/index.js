@@ -1,7 +1,7 @@
 import { Tab, Tabs } from "native-base";
 import React from "react";
-import SideDrawer from "../../components/shared/SideDrawer";
-import TopBar from "../../components/shared/TopBar";
+import SideDrawer from "../../components/Shared/SideDrawer";
+import TopBar from "../../components/Shared/TopBar";
 import theme from "../../libs/theme";
 import ChannelTab from "./ChannelTab";
 import CommunityTab from "./CommunityTab";

@@ -5,7 +5,14 @@ import { getAuthMobile, makeRequest, setAuthToken } from "../../services";
 export const auth = {
   name: "auth",
   state: {
-    authUser: null,
+    authUser: {
+      name: null,
+      dob: null,
+      gender: null,
+      marital_status: null,
+      avatar:
+        "https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-128.png"
+    },
     errors: null
   },
   reducers: {
@@ -25,7 +32,7 @@ export const auth = {
 
           dispatch.auth.setAuthUser({ authUser: data.user, errors: null });
         } catch (error) {
-          dispatch.auth.setAuthUser({ errors: error.response.data });
+          console.log(error);
         }
       },
       async login(payload) {

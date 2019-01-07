@@ -1,4 +1,5 @@
 import { api } from "../../libs/api";
+import { getInitialScreen } from "../../libs/screen";
 import { makeRequest, setAuthMobile } from "../../services";
 
 export const otp = {
@@ -35,13 +36,13 @@ export const otp = {
       },
 
       async verifyOtp(payload, rootState) {
-        const { mobile, otp, navigation } = payload;
+        const { user, mobile, otp, navigation } = payload;
 
         try {
           await makeRequest(api.verifyOtp, { mobile, otp });
           await setAuthMobile(mobile);
 
-          navigation.replace("AccountListScreen", { type: "login" });
+          navigation.replace(getInitialScreen(user, mobile));
         } catch (error) {
           dispatch.otp.setOtp({ error: error.response.data });
         }

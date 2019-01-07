@@ -4,10 +4,10 @@ import { createAppContainer, createStackNavigator } from "react-navigation";
 import { Provider } from "react-redux";
 import NoNetwork from "./src/components/NoNetwork";
 // screens
+import AddAccountScreen from "./src/containers/AddAccountScreen";
 import GetStartedScreen from "./src/containers/GetStartedScreen";
 import RequestOtpScreen from "./src/containers/RequestOtpScreen";
 import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
-
 // import AccountListScreen from "./src/containers/AccountListScreen";
 // import AddCommunityScreen from "./src/containers/AddCommunityScreen";
 // import AddRelationScreen from "./src/containers/AddRelationScreen";
@@ -25,10 +25,10 @@ import { getInitialScreen } from "./src/libs/screen";
 import { getAuthMobile } from "./src/services";
 import store from "./src/store";
 
-
 const getAppNavigator = initialRouteName => {
   return createStackNavigator(
     {
+      AddAccountScreen: { screen: AddAccountScreen },
       GetStartedScreen: { screen: GetStartedScreen },
       RequestOtpScreen: { screen: RequestOtpScreen },
       VerifyOtpScreen: { screen: VerifyOtpScreen },
@@ -93,7 +93,7 @@ class App extends React.Component {
     const noConnection = connection && connection.type === "none";
     const hasConnection = connection && connection.type !== "none";
 
-    const initialRouteName = getInitialScreen(authUser, authMobile);
+    const initialRouteName = getInitialScreen(authUser, authMobile);    
     const AppNavigator = getAppNavigator(initialRouteName);
     const AppContainer = createAppContainer(AppNavigator);
 

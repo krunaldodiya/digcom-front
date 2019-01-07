@@ -1,7 +1,7 @@
 import { Button, Form, Input, Item, Text, View } from "native-base";
 import React from "react";
 import theme from "../../libs/theme";
-import Switch from "../shared/Switch";
+import Switch from "../Shared/Switch";
 import styles from "./styles";
 
 class ContentBody extends React.Component {

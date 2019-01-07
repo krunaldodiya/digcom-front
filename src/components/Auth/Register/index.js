@@ -1,7 +1,7 @@
 import React from "react";
 import { KeyboardAvoidingView, SafeAreaView } from "react-native";
 // component
-import Loader from "../../shared/Loader";
+import Loader from "../../Shared/Loader";
 import RegisterForm from "./register_form";
 import RegisterInfo from "./register_info";
 

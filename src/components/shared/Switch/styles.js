@@ -15,7 +15,7 @@ export default StyleSheet.create({
   switchOptionWrapper: (option, selected, index, total) => {
     return {
       flex: 1,
-      backgroundColor: option === selected ? "#d80402" : "#fff",
+      backgroundColor: option === selected ? "#000000" : "#fff",
       borderLeftWidth: index !== 0 ? 1 : 0,
       borderLeftColor: "#000",
       borderTopLeftRadius: index === 0 ? 20 : 0,
