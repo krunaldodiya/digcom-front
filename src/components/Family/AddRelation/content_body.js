@@ -1,6 +1,6 @@
 import { View } from "native-base";
 import React from "react";
-import Loader from "../../components/shared/Loader";
+import Loader from "../../components/Shared/Loader";
 import FromRequest from "./from_request";
 import RequestAccepted from "./request_accepted";
 import SelectRelation from "./select_relation";

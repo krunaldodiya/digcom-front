@@ -13,7 +13,7 @@ const getInitialScreen = (authUser, authMobile = null) => {
     return "AccountListScreen";
   }
 
-  return "RequestOtpScreen";
+  return "GetStartedScreen";
 };
 
 export { getInitialScreen };

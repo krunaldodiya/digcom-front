@@ -1,7 +1,7 @@
 import { Button, CheckBox, Switch, Text, View } from "native-base";
 import React from "react";
 import { KeyboardAvoidingView, SafeAreaView, TextInput } from "react-native";
-import Loader from "../../components/shared/Loader";
+import Loader from "../../components/Shared/Loader";
 import { api } from "../../libs/api";
 import theme from "../../libs/theme";
 import styles from "./styles";

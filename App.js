@@ -3,41 +3,46 @@ import { NetInfo } from "react-native";
 import { createAppContainer, createStackNavigator } from "react-navigation";
 import { Provider } from "react-redux";
 import NoNetwork from "./src/components/NoNetwork";
-import AccountListScreen from "./src/containers/AccountListScreen";
-import AddCommunityScreen from "./src/containers/AddCommunityScreen";
-import AddRelationScreen from "./src/containers/AddRelationScreen";
-import AddRelativeScreen from "./src/containers/AddRelativeScreen";
-import AvatarScreen from "./src/containers/AvatarScreen";
-import ManageCommunityScreen from "./src/containers/ManageCommunityScreen";
-import ManageFamilyScreen from "./src/containers/ManageFamilyScreen";
-import ManageProfileScreen from "./src/containers/ManageProfileScreen";
+// screens
+import GetStartedScreen from "./src/containers/GetStartedScreen";
 import RequestOtpScreen from "./src/containers/RequestOtpScreen";
-import SearchScreen from "./src/containers/SearchScreen";
-import SettingsScreen from "./src/containers/SettingsScreen";
-import TabsScreen from "./src/containers/TabsScreen";
-import UserDetailScreen from "./src/containers/UserDetailScreen";
-import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
+// import AccountListScreen from "./src/containers/AccountListScreen";
+// import AddCommunityScreen from "./src/containers/AddCommunityScreen";
+// import AddRelationScreen from "./src/containers/AddRelationScreen";
+// import AddRelativeScreen from "./src/containers/AddRelativeScreen";
+// import AvatarScreen from "./src/containers/AvatarScreen";
+// import ManageCommunityScreen from "./src/containers/ManageCommunityScreen";
+// import ManageFamilyScreen from "./src/containers/ManageFamilyScreen";
+// import ManageProfileScreen from "./src/containers/ManageProfileScreen";
+// import SearchScreen from "./src/containers/SearchScreen";
+// import SettingsScreen from "./src/containers/SettingsScreen";
+// import TabsScreen from "./src/containers/TabsScreen";
+// import UserDetailScreen from "./src/containers/UserDetailScreen";
+// import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
+// libs & services
 import { getInitialScreen } from "./src/libs/screen";
 import { getAuthMobile } from "./src/services";
 import store from "./src/store";
 
+
 const getAppNavigator = initialRouteName => {
   return createStackNavigator(
     {
-      TabsScreen: { screen: TabsScreen },
-      ManageProfileScreen: { screen: ManageProfileScreen },
-      ManageCommunityScreen: { screen: ManageCommunityScreen },
-      AddCommunityScreen: { screen: AddCommunityScreen },
-      AddRelationScreen: { screen: AddRelationScreen },
-      AddRelativeScreen: { screen: AddRelativeScreen },
-      ManageFamilyScreen: { screen: ManageFamilyScreen },
-      UserDetailScreen: { screen: UserDetailScreen },
-      AvatarScreen: { screen: AvatarScreen },
-      SearchScreen: { screen: SearchScreen },
-      SettingsScreen: { screen: SettingsScreen },
+      GetStartedScreen: { screen: GetStartedScreen },
       RequestOtpScreen: { screen: RequestOtpScreen },
-      VerifyOtpScreen: { screen: VerifyOtpScreen },
-      AccountListScreen: { screen: AccountListScreen },
+      // TabsScreen: { screen: TabsScreen },
+      // ManageProfileScreen: { screen: ManageProfileScreen },
+      // ManageCommunityScreen: { screen: ManageCommunityScreen },
+      // AddCommunityScreen: { screen: AddCommunityScreen },
+      // AddRelationScreen: { screen: AddRelationScreen },
+      // AddRelativeScreen: { screen: AddRelativeScreen },
+      // ManageFamilyScreen: { screen: ManageFamilyScreen },
+      // UserDetailScreen: { screen: UserDetailScreen },
+      // AvatarScreen: { screen: AvatarScreen },
+      // SearchScreen: { screen: SearchScreen },
+      // SettingsScreen: { screen: SettingsScreen },
+      // VerifyOtpScreen: { screen: VerifyOtpScreen },
+      // AccountListScreen: { screen: AccountListScreen },
     },
     {
       initialRouteName,

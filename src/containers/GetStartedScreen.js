@@ -1,17 +1,17 @@
 import { connect } from "react-redux";
-import RequestOtp from "../components/Otp/RequestOtp";
+import GetStarted from "../components/GetStarted";
 
 const mapStateToProps = state => ({
   loading: state.loading,
-  otp: state.otp
+  auth: state.auth
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleInput: dispatch.otp.handleInput,
-  requestOtp: dispatch.otp.requestOtp
+  login: dispatch.auth.login,
+  register: dispatch.auth.register
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RequestOtp);
+)(GetStarted);
