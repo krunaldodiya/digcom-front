@@ -3,23 +3,38 @@ import { KeyboardAvoidingView, SafeAreaView } from "react-native";
 import Loader from "../../Shared/Loader";
 import Content from "./content";
 import Header from "./header";
+import Contacts from "react-native-contacts";
 
 class AddAccount extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      avoidKeyboard: false,
-      relation: null
+      avoidKeyboard: false
     };
   }
 
-  componentDidMount() {
-    const { state } = this.props.navigation;
-    const relation_data = state.params ? state.params.relation : "Family";
+  componentWillMount() {
+    Contacts.checkPermission((err, permission) => {
+      if (err) throw err;
 
-    this.setState({ relation: relation_data });
+      if (permission === "undefined") {
+        Contacts.requestPermission((err, permission) => {
+          this.getAllContacts();
+        });
+      }
+
+      if (permission === "authorized") {
+        this.getAllContacts();
+      }
+    });
   }
+
+  getAllContacts = () => {
+    Contacts.getAllWithoutPhotos((error, contacts) => {
+      console.log(contacts);
+    });
+  };
 
   toggleKeyboardAvoidView = avoidKeyboard => {
     this.setState({ avoidKeyboard });
@@ -27,8 +42,8 @@ class AddAccount extends React.Component {
 
   render() {
     const { loading } = this.props;
-    const { avoidKeyboard, relation } = this.state;
-    
+    const { avoidKeyboard } = this.state;
+
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <KeyboardAvoidingView
@@ -38,10 +53,9 @@ class AddAccount extends React.Component {
           contentContainerStyle={{ flex: 1 }}
         >
           <Loader loading={loading.effects.auth.updateAuthUser} />
-          <Header {...this.props} relation={relation} />
+          <Header {...this.props} />
           <Content
             {...this.props}
-            relation={relation}
             toggleKeyboardAvoidView={this.toggleKeyboardAvoidView}
           />
         </KeyboardAvoidingView>

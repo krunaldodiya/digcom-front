@@ -5,14 +5,7 @@ import { getAuthMobile, makeRequest, setAuthToken } from "../../services";
 export const auth = {
   name: "auth",
   state: {
-    authUser: {
-      name: null,
-      dob: null,
-      gender: "Male",
-      marital_status: "Single",
-      avatar:
-        "http://hostelarabas.gr/wp-content/plugins/wp-first-letter-avatar/images/default/128/mystery.png"
-    },
+    authUser: null,
     errors: null
   },
   reducers: {

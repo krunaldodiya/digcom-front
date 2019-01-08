@@ -1,4 +1,4 @@
-const getInitialScreen = (authUser, authMobile = null) => {
+const getInitialScreen = (authUser, authMobile = null) => {  
   if (authUser) {
     const { status } = authUser;
 

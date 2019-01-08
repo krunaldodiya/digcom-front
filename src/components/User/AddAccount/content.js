@@ -1,21 +1,41 @@
-import { Thumbnail, Button, Right, Icon } from "native-base";
+import { Button, Icon, Right, Thumbnail } from "native-base";
 import React from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { TextInputMask } from "react-native-masked-text";
+import theme from "../../../libs/theme";
+import { httpUrl } from "../../../libs/vars";
 import { uploadAvatar } from "../../../services";
 import Switch from "../../Shared/Switch";
-import styles from "./styles";
 import RelationModal from "./relation";
-import theme from "../../../libs/theme";
+import styles from "./styles";
 
 class Content extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      loading: false,
       modalVisible: false
     };
+  }
+
+  componentWillMount() {
+    const { authUser, navigation } = this.props;
+    const { state } = navigation;
+
+    const user_relation = state.params ? state.params.relation : "self";
+
+    this.props.handleInput({
+      authUser: {
+        name: null,
+        dob: null,
+        gender: "Male",
+        marital_status: "Single",
+        avatar: `${httpUrl}/images/man.png`,
+        relation: user_relation,
+        relation_title: user_relation === "self" ? "you" : null,
+        ...authUser
+      }
+    });
   }
 
   updateData = data => {
@@ -25,15 +45,29 @@ class Content extends React.Component {
     handleInput({ authUser: { ...authUser, ...data } });
   };
 
-  hideModel = () => {
-    this.setState({ modalVisible: false });
+  onSelect = relation_title => {
+    const { auth, handleInput } = this.props;
+    const { authUser } = auth;
+
+    handleInput({
+      authUser: { ...authUser, relation_title }
+    });
+
+    this.setState({
+      modalVisible: false
+    });
   };
 
   render() {
     const { modalVisible } = this.state;
-    const { auth, toggleKeyboardAvoidView, relation } = this.props;
+    const { auth, toggleKeyboardAvoidView } = this.props;
     const { authUser, errors } = auth;
+
     const options = { cropping: true, height: 480, width: 480 };
+
+    if (!authUser) {
+      return false;
+    }
 
     return (
       <View style={styles.container}>
@@ -99,20 +133,23 @@ class Content extends React.Component {
           />
         </View>
 
-        {relation !== "Self" && (
+        {authUser.relation === "family" && (
           <View style={styles.inputWrapper}>
             <RelationModal
+              gender={authUser.gender}
               modalVisible={modalVisible}
-              hideModel={this.hideModel}
+              onSelect={this.onSelect}
             />
+
             <Button
               transparent
               style={styles.input(null)}
               onPress={() => this.setState({ modalVisible: true })}
             >
               <Text style={{ fontFamily: theme.fonts.TitilliumWebRegular }}>
-                Select a relation
+                {authUser.relation_title || "Select a relation"}
               </Text>
+
               <Right>
                 <Icon
                   type="FontAwesome"

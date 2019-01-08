@@ -31,7 +31,7 @@ const getAppNavigator = initialRouteName => {
       AddAccountScreen: { screen: AddAccountScreen },
       GetStartedScreen: { screen: GetStartedScreen },
       RequestOtpScreen: { screen: RequestOtpScreen },
-      VerifyOtpScreen: { screen: VerifyOtpScreen },
+      VerifyOtpScreen: { screen: VerifyOtpScreen }
       // TabsScreen: { screen: TabsScreen },
       // ManageProfileScreen: { screen: ManageProfileScreen },
       // ManageCommunityScreen: { screen: ManageCommunityScreen },
@@ -65,8 +65,6 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    this.getContacts();
-
     NetInfo.addEventListener("connectionChange", netInfo => {
       store.dispatch.network.networkChange({ connection: netInfo });
     });
@@ -85,10 +83,6 @@ class App extends React.Component {
       });
   }
 
-  getContacts = () => {
-
-  }
-  
   render() {
     const { authMobile, initialized } = this.state;
 
