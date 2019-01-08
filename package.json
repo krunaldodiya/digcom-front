@@ -21,6 +21,7 @@
     "react-native": "0.57.7",
     "react-native-code-push": "^5.5.1",
     "react-native-confirmation-code-input": "^1.0.4",
+    "react-native-contacts": "^2.2.5",
     "react-native-drawer": "^2.5.1",
     "react-native-gesture-handler": "^1.0.10",
     "react-native-image-crop-picker": "^0.21.3",

@@ -1,16 +1,24 @@
 import React from "react";
 import { KeyboardAvoidingView, SafeAreaView } from "react-native";
 import Loader from "../../Shared/Loader";
-import ProfileForm from "./form_profile";
-import TermsHeader from "./header";
+import Content from "./content";
+import Header from "./header";
 
 class AddAccount extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      avoidKeyboard: false
+      avoidKeyboard: false,
+      relation: null
     };
+  }
+
+  componentDidMount() {
+    const { state } = this.props.navigation;
+    const relation_data = state.params ? state.params.relation : "Family";
+
+    this.setState({ relation: relation_data });
   }
 
   toggleKeyboardAvoidView = avoidKeyboard => {
@@ -19,8 +27,8 @@ class AddAccount extends React.Component {
 
   render() {
     const { loading } = this.props;
-    const { avoidKeyboard } = this.state;
-
+    const { avoidKeyboard, relation } = this.state;
+    
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <KeyboardAvoidingView
@@ -30,10 +38,10 @@ class AddAccount extends React.Component {
           contentContainerStyle={{ flex: 1 }}
         >
           <Loader loading={loading.effects.auth.updateAuthUser} />
-          <TermsHeader {...this.props} />
-          <ProfileForm
+          <Header {...this.props} relation={relation} />
+          <Content
             {...this.props}
-            updateUserData={this.updateUserData}
+            relation={relation}
             toggleKeyboardAvoidView={this.toggleKeyboardAvoidView}
           />
         </KeyboardAvoidingView>

@@ -30,31 +30,34 @@ export default StyleSheet.create({
   },
   formWrapper: {
     marginTop: 20,
-    flexDirection: "column"
+    flexDirection: "column",
+    justifyContent: 'center'
   },
   inputWrapper: {
-    borderBottomWidth: 0
+    marginBottom: 15,
+    alignItems: 'center'
   },
   input: errors => {
     return {
+      alignSelf: "center",
       borderColor: errors ? "#e74c3c" : "gray",
-      marginHorizontal: 20,
-      marginBottom: 5,
+      width: 250,
+      padding: 5,
       borderWidth: 1,
-      borderRadius: 10,
+      borderRadius: 20,
       paddingLeft: 20,
-      fontFamily: theme.fonts.TitilliumWebRegular
+      fontFamily: theme.fonts.TitilliumWebRegular,
+      fontSize: 14
     };
   },
-  buttonGroup: {
-    marginTop: 10
-  },
   buttonWrapper: {
+    marginBottom: 10,
     justifyContent: "center",
     borderBottomWidth: 0
   },
   submitButtonWrapper: {
     marginTop: 30,
+    justifyContent: 'center',
     alignSelf: "center",
     borderBottomWidth: 0
   },

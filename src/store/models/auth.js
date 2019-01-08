@@ -8,10 +8,10 @@ export const auth = {
     authUser: {
       name: null,
       dob: null,
-      gender: null,
-      marital_status: null,
+      gender: "Male",
+      marital_status: "Single",
       avatar:
-        "https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-128.png"
+        "http://hostelarabas.gr/wp-content/plugins/wp-first-letter-avatar/images/default/128/mystery.png"
     },
     errors: null
   },

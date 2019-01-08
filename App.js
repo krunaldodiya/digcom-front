@@ -65,6 +65,8 @@ class App extends React.Component {
   }
 
   componentWillMount() {
+    this.getContacts();
+
     NetInfo.addEventListener("connectionChange", netInfo => {
       store.dispatch.network.networkChange({ connection: netInfo });
     });
@@ -83,6 +85,10 @@ class App extends React.Component {
       });
   }
 
+  getContacts = () => {
+
+  }
+  
   render() {
     const { authMobile, initialized } = this.state;
 

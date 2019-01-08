@@ -3,15 +3,17 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import styles from "./styles";
 
-class TermsHeader extends React.Component {
+class Header extends React.Component {
   render() {
-    const { updateAuthUser, auth, navigation } = this.props;
+    const { updateAuthUser, auth, navigation, relation } = this.props;
     const { authUser } = auth;
 
     return (
       <View style={styles.termsWrapper}>
         <View style={{ justifyContent: "center" }}>
-          <Text style={styles.termsHeader}>Add Account</Text>
+          <Text style={styles.termsHeader}>
+            Add {relation == "Self" ? "Account" : "Family"}
+          </Text>
         </View>
 
         <TouchableOpacity
@@ -30,4 +32,4 @@ class TermsHeader extends React.Component {
   }
 }
 
-export default TermsHeader;
+export default Header;
