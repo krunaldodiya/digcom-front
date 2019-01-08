@@ -9,6 +9,17 @@ import Switch from "../../Shared/Switch";
 import RelationModal from "./relation";
 import styles from "./styles";
 
+const relation_data = {
+  Male: {
+    Married: ["Friend", "Brother", "Son", "Father", "Husband"],
+    Single: ["Friend", "Brother", "Son"]
+  },
+  Female: {
+    Married: ["Friend", "Sister", "Daughter", "Mother", "Wife"],
+    Single: ["Friend", "Sister", "Daughter"]
+  }
+};
+
 class Content extends React.Component {
   constructor(props) {
     super(props);
@@ -22,15 +33,15 @@ class Content extends React.Component {
     const { authUser, navigation } = this.props;
     const { state } = navigation;
 
-    const user_relation = state.params ? state.params.relation : "self";
+    const user_relation = state.params ? state.params.relation : "family";
 
     this.props.handleInput({
       authUser: {
         name: null,
         dob: null,
         gender: "Male",
-        marital_status: "Single",
         avatar: `${httpUrl}/images/man.png`,
+        marital_status: "Single",
         relation: user_relation,
         relation_title: user_relation === "self" ? "you" : null,
         ...authUser
@@ -45,12 +56,14 @@ class Content extends React.Component {
     handleInput({ authUser: { ...authUser, ...data } });
   };
 
-  onSelect = relation_title => {
+  onSelect = data => {
+    console.log(data);
+
     const { auth, handleInput } = this.props;
     const { authUser } = auth;
 
     handleInput({
-      authUser: { ...authUser, relation_title }
+      authUser: { ...authUser, ...data }
     });
 
     this.setState({
@@ -133,12 +146,44 @@ class Content extends React.Component {
           />
         </View>
 
+        <View style={styles.inputWrapper}>
+          <RelationModal
+            {...this.props}
+            data={{
+              modalVisible,
+              items: ["Married", "Single", "Divorcee", "widow", "widower"]
+            }}
+            onSelect={marital_status => this.onSelect({ marital_status })}
+          />
+
+          <Button
+            transparent
+            style={styles.input(null)}
+            onPress={() => this.setState({ modalVisible: true })}
+          >
+            <Text style={{ fontFamily: theme.fonts.TitilliumWebRegular }}>
+              {authUser.marital_status}
+            </Text>
+
+            <Right>
+              <Icon
+                type="FontAwesome"
+                name="angle-right"
+                style={{ fontSize: 24, color: "gray", marginRight: 8 }}
+              />
+            </Right>
+          </Button>
+        </View>
+
         {authUser.relation === "family" && (
           <View style={styles.inputWrapper}>
             <RelationModal
-              gender={authUser.gender}
-              modalVisible={modalVisible}
-              onSelect={this.onSelect}
+              {...this.props}
+              data={{
+                modalVisible,
+                items: relation_data[authUser.gender][authUser.marital_status]
+              }}
+              onSelect={relation_title => this.onSelect({ relation_title })}
             />
 
             <Button

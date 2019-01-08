@@ -1,28 +1,22 @@
 import React from "react";
-import { Modal, View, Text, TouchableOpacity } from "react-native";
+import { Modal, Text, TouchableOpacity, View } from "react-native";
 import theme from "../../../libs/theme";
-
-const relation_data = {
-  Male: ["Brother", "Son", "Father", "Husband"],
-  Female: ["Sister", "Daughter", "Mother", "Wife"]
-};
 
 export default class RelationModal extends React.Component {
   render() {
-    const { modalVisible, onSelect, gender } = this.props;
-    const relations = relation_data[gender];
+    const { onSelect, data } = this.props;
+    const { modalVisible, items } = data;
 
     return (
-      <Modal
-        animationType="slide"
-        transparent={false}
-        visible={modalVisible}
-      >
+      <Modal animationType="slide" transparent={false} visible={modalVisible}>
         <View style={{ flex: 1 }}>
           <View style={{ flex: 1, padding: 20 }}>
-            {relations.map(relation => {
+            {items.map((item, index) => {
               return (
-                <TouchableOpacity onPress={() => onSelect(relation)}>
+                <TouchableOpacity
+                  onPress={() => onSelect(item)}
+                  key={index}
+                >
                   <Text
                     style={{
                       fontFamily: theme.fonts.TitilliumWebSemiBold,
@@ -30,7 +24,7 @@ export default class RelationModal extends React.Component {
                       fontSize: 16
                     }}
                   >
-                    {relation}
+                    {item}
                   </Text>
                 </TouchableOpacity>
               );
