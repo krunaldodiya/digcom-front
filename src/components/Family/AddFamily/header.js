@@ -5,8 +5,8 @@ import styles from "./styles";
 
 class Header extends React.Component {
   render() {
-    const { guest, register, navigation } = this.props;
-    const { authUser } = guest;
+    const { family, addMember, navigation } = this.props;
+    const { authUser } = family;
 
     return (
       <View style={styles.termsWrapper}>
@@ -17,7 +17,7 @@ class Header extends React.Component {
         <TouchableOpacity
           style={styles.submitButton}
           onPress={() =>
-            register({
+            addMember({
               authUser,
               navigation
             })

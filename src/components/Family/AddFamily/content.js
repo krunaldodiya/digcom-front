@@ -18,15 +18,15 @@ class Content extends React.Component {
   }
 
   updateData = data => {
-    const { guest, handleInput } = this.props;
-    const { authUser } = guest;
+    const { family, handleInput } = this.props;
+    const { authUser } = family;
 
     handleInput({ authUser: { ...authUser, ...data } });
   };
 
   onSelect = data => {
-    const { guest, handleInput } = this.props;
-    const { authUser } = guest;
+    const { family, handleInput } = this.props;
+    const { authUser } = family;
 
     handleInput({
       authUser: { ...authUser, ...data }
@@ -43,8 +43,8 @@ class Content extends React.Component {
 
   render() {
     const { modalVisible } = this.state;
-    const { guest, toggleKeyboardAvoidView } = this.props;
-    const { authUser, errors } = guest;
+    const { family, toggleKeyboardAvoidView } = this.props;
+    const { authUser, errors } = family;
 
     const options = { cropping: true, height: 480, width: 480 };
 

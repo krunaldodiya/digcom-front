@@ -6,7 +6,7 @@ const getInitialScreen = (authUser) => {
       return "ManageProfileScreen";
     }
 
-    return "TabsScreen";
+    return "AddFamilyScreen";
   }
 
   return "GetStartedScreen";

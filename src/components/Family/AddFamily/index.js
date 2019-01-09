@@ -29,7 +29,7 @@ class AddFamily extends React.Component {
           style={{ flex: 1 }}
           contentContainerStyle={{ flex: 1 }}
         >
-          <Loader loading={loading.effects.guest.register} />
+          <Loader loading={loading.effects.family.addMember} />
           <Header {...this.props} />
           <Content
             {...this.props}

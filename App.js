@@ -11,7 +11,7 @@ import GetStartedScreen from "./src/containers/GetStartedScreen";
 // import AddRelativeScreen from "./src/containers/AddRelativeScreen";
 // import AvatarScreen from "./src/containers/AvatarScreen";
 // import ManageCommunityScreen from "./src/containers/ManageCommunityScreen";
-// import ManageFamilyScreen from "./src/containers/ManageFamilyScreen";
+import AddFamilyScreen from "./src/containers/AddFamilyScreen";
 import ManageProfileScreen from "./src/containers/ManageProfileScreen";
 import RequestOtpScreen from "./src/containers/RequestOtpScreen";
 import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
@@ -29,13 +29,13 @@ const getAppNavigator = initialRouteName => {
       GetStartedScreen: { screen: GetStartedScreen },
       RequestOtpScreen: { screen: RequestOtpScreen },
       VerifyOtpScreen: { screen: VerifyOtpScreen },
-      ManageProfileScreen: { screen: ManageProfileScreen }
+      ManageProfileScreen: { screen: ManageProfileScreen },
+      AddFamilyScreen: { screen: AddFamilyScreen },
       // TabsScreen: { screen: TabsScreen },
       // ManageCommunityScreen: { screen: ManageCommunityScreen },
       // AddCommunityScreen: { screen: AddCommunityScreen },
       // AddRelationScreen: { screen: AddRelationScreen },
       // AddRelativeScreen: { screen: AddRelativeScreen },
-      // ManageFamilyScreen: { screen: ManageFamilyScreen },
       // UserDetailScreen: { screen: UserDetailScreen },
       // AvatarScreen: { screen: AvatarScreen },
       // SearchScreen: { screen: SearchScreen },
