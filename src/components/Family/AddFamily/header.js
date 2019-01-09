@@ -5,21 +5,19 @@ import styles from "./styles";
 
 class Header extends React.Component {
   render() {
-    const { updateAuthUser, auth, navigation, relation } = this.props;
-    const { authUser } = auth;
+    const { guest, register, navigation } = this.props;
+    const { authUser } = guest;
 
     return (
       <View style={styles.termsWrapper}>
         <View style={{ justifyContent: "center" }}>
-          <Text style={styles.termsHeader}>
-            Add {relation == "Self" ? "Account" : "Family"}
-          </Text>
+          <Text style={styles.termsHeader}>Add Family</Text>
         </View>
 
         <TouchableOpacity
           style={styles.submitButton}
           onPress={() =>
-            updateAuthUser({
+            register({
               authUser,
               navigation
             })

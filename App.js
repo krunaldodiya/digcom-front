@@ -4,10 +4,7 @@ import { createAppContainer, createStackNavigator } from "react-navigation";
 import { Provider } from "react-redux";
 import NoNetwork from "./src/components/NoNetwork";
 // screens
-import AddAccountScreen from "./src/containers/AddAccountScreen";
 import GetStartedScreen from "./src/containers/GetStartedScreen";
-import RequestOtpScreen from "./src/containers/RequestOtpScreen";
-import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
 // import AccountListScreen from "./src/containers/AccountListScreen";
 // import AddCommunityScreen from "./src/containers/AddCommunityScreen";
 // import AddRelationScreen from "./src/containers/AddRelationScreen";
@@ -15,25 +12,25 @@ import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
 // import AvatarScreen from "./src/containers/AvatarScreen";
 // import ManageCommunityScreen from "./src/containers/ManageCommunityScreen";
 // import ManageFamilyScreen from "./src/containers/ManageFamilyScreen";
-// import ManageProfileScreen from "./src/containers/ManageProfileScreen";
+import ManageProfileScreen from "./src/containers/ManageProfileScreen";
+import RequestOtpScreen from "./src/containers/RequestOtpScreen";
+import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
 // import SearchScreen from "./src/containers/SearchScreen";
 // import SettingsScreen from "./src/containers/SettingsScreen";
 // import TabsScreen from "./src/containers/TabsScreen";
 // import UserDetailScreen from "./src/containers/UserDetailScreen";
 // libs & services
 import { getInitialScreen } from "./src/libs/screen";
-import { getAuthMobile } from "./src/services";
 import store from "./src/store";
 
 const getAppNavigator = initialRouteName => {
   return createStackNavigator(
     {
-      AddAccountScreen: { screen: AddAccountScreen },
       GetStartedScreen: { screen: GetStartedScreen },
       RequestOtpScreen: { screen: RequestOtpScreen },
-      VerifyOtpScreen: { screen: VerifyOtpScreen }
+      VerifyOtpScreen: { screen: VerifyOtpScreen },
+      ManageProfileScreen: { screen: ManageProfileScreen }
       // TabsScreen: { screen: TabsScreen },
-      // ManageProfileScreen: { screen: ManageProfileScreen },
       // ManageCommunityScreen: { screen: ManageCommunityScreen },
       // AddCommunityScreen: { screen: AddCommunityScreen },
       // AddRelationScreen: { screen: AddRelationScreen },
@@ -59,7 +56,6 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      authMobile: null,
       initialized: false
     };
   }
@@ -71,20 +67,18 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    const authMobile = await getAuthMobile();
-
     store.dispatch.auth
       .getAuthUser()
       .then(() => {
-        this.setState({ authMobile, initialized: true });
+        this.setState({ initialized: true });
       })
       .catch(() => {
-        this.setState({ authMobile, initialized: true });
+        this.setState({ initialized: true });
       });
   }
 
   render() {
-    const { authMobile, initialized } = this.state;
+    const { initialized } = this.state;
 
     const { auth, network } = store.getState();
     const { authUser } = auth;
@@ -93,7 +87,7 @@ class App extends React.Component {
     const noConnection = connection && connection.type === "none";
     const hasConnection = connection && connection.type !== "none";
 
-    const initialRouteName = getInitialScreen(authUser, authMobile);    
+    const initialRouteName = getInitialScreen(authUser);
     const AppNavigator = getAppNavigator(initialRouteName);
     const AppContainer = createAppContainer(AppNavigator);
 

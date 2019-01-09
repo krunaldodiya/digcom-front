@@ -3,22 +3,10 @@ import React from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { TextInputMask } from "react-native-masked-text";
 import theme from "../../../libs/theme";
-import { httpUrl } from "../../../libs/vars";
 import { uploadAvatar } from "../../../services";
+import ListModal from "../../Shared/ListModal";
 import Switch from "../../Shared/Switch";
-import RelationModal from "./relation";
 import styles from "./styles";
-
-const relation_data = {
-  Male: {
-    Married: ["Friend", "Brother", "Son", "Father", "Husband"],
-    Single: ["Friend", "Brother", "Son"]
-  },
-  Female: {
-    Married: ["Friend", "Sister", "Daughter", "Mother", "Wife"],
-    Single: ["Friend", "Sister", "Daughter"]
-  }
-};
 
 class Content extends React.Component {
   constructor(props) {
@@ -29,26 +17,6 @@ class Content extends React.Component {
     };
   }
 
-  componentWillMount() {
-    const { authUser, navigation } = this.props;
-    const { state } = navigation;
-
-    const user_relation = state.params ? state.params.relation : "family";
-
-    this.props.handleInput({
-      authUser: {
-        name: null,
-        dob: null,
-        gender: "Male",
-        avatar: `${httpUrl}/images/man.png`,
-        marital_status: "Single",
-        relation: user_relation,
-        relation_title: user_relation === "self" ? "you" : null,
-        ...authUser
-      }
-    });
-  }
-
   updateData = data => {
     const { auth, handleInput } = this.props;
     const { authUser } = auth;
@@ -57,8 +25,6 @@ class Content extends React.Component {
   };
 
   onSelect = data => {
-    console.log(data);
-
     const { auth, handleInput } = this.props;
     const { authUser } = auth;
 
@@ -66,6 +32,10 @@ class Content extends React.Component {
       authUser: { ...authUser, ...data }
     });
 
+    this.hideModal();
+  };
+
+  hideModal = () => {
     this.setState({
       modalVisible: false
     });
@@ -77,10 +47,6 @@ class Content extends React.Component {
     const { authUser, errors } = auth;
 
     const options = { cropping: true, height: 480, width: 480 };
-
-    if (!authUser) {
-      return false;
-    }
 
     return (
       <View style={styles.container}>
@@ -147,14 +113,17 @@ class Content extends React.Component {
         </View>
 
         <View style={styles.inputWrapper}>
-          <RelationModal
-            {...this.props}
-            data={{
-              modalVisible,
-              items: ["Married", "Single", "Divorcee", "widow", "widower"]
-            }}
-            onSelect={marital_status => this.onSelect({ marital_status })}
-          />
+          {modalVisible && (
+            <ListModal
+              {...this.props}
+              data={{
+                modalVisible,
+                items: ["Single", "Married", "Divorcee", "widow", "widower"]
+              }}
+              hideModal={this.hideModal}
+              onSelect={marital_status => this.onSelect({ marital_status })}
+            />
+          )}
 
           <Button
             transparent
@@ -164,7 +133,6 @@ class Content extends React.Component {
             <Text style={{ fontFamily: theme.fonts.TitilliumWebRegular }}>
               {authUser.marital_status}
             </Text>
-
             <Right>
               <Icon
                 type="FontAwesome"
@@ -174,37 +142,6 @@ class Content extends React.Component {
             </Right>
           </Button>
         </View>
-
-        {authUser.relation === "family" && (
-          <View style={styles.inputWrapper}>
-            <RelationModal
-              {...this.props}
-              data={{
-                modalVisible,
-                items: relation_data[authUser.gender][authUser.marital_status]
-              }}
-              onSelect={relation_title => this.onSelect({ relation_title })}
-            />
-
-            <Button
-              transparent
-              style={styles.input(null)}
-              onPress={() => this.setState({ modalVisible: true })}
-            >
-              <Text style={{ fontFamily: theme.fonts.TitilliumWebRegular }}>
-                {authUser.relation_title || "Select a relation"}
-              </Text>
-
-              <Right>
-                <Icon
-                  type="FontAwesome"
-                  name="angle-right"
-                  style={{ fontSize: 24, color: "gray", marginRight: 8 }}
-                />
-              </Right>
-            </Button>
-          </View>
-        )}
       </View>
     );
   }

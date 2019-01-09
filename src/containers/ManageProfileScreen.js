@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import ManageProfile from "../components/ManageProfile";
+import ManageProfile from "../components/User/ManageProfile";
 
 const mapStateToProps = state => ({
   loading: state.loading,

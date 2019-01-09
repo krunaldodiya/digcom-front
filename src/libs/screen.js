@@ -1,16 +1,12 @@
-const getInitialScreen = (authUser, authMobile = null) => {  
+const getInitialScreen = (authUser) => {  
   if (authUser) {
     const { status } = authUser;
 
     if (!status) {
-      return "AddAccountScreen";
+      return "ManageProfileScreen";
     }
 
     return "TabsScreen";
-  }
-
-  if (authMobile) {
-    return "AddAccountScreen";
   }
 
   return "GetStartedScreen";

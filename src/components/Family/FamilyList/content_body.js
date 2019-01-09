@@ -13,7 +13,6 @@ import React from "react";
 import { FlatList } from "react-native-gesture-handler";
 import { api } from "../../../libs/api";
 import theme from "../../../libs/theme";
-import { getAuthMobile } from "../../../services";
 
 class ContentBody extends React.Component {
   constructor(props) {
@@ -28,8 +27,6 @@ class ContentBody extends React.Component {
 
   async componentWillMount() {
     this.setState({ loading: true });
-
-    const mobile = await getAuthMobile();
 
     axios
       .post(api.getUsersByMobile, { mobile })

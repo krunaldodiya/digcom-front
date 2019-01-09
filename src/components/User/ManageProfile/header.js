@@ -3,9 +3,9 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import styles from "./styles";
 
-class TermsHeader extends React.Component {
+class Header extends React.Component {
   render() {
-    const { updateAuthUser, auth, navigation } = this.props;
+    const { auth, updateAuthUser, navigation } = this.props;
     const { authUser } = auth;
 
     return (
@@ -30,4 +30,4 @@ class TermsHeader extends React.Component {
   }
 }
 
-export default TermsHeader;
+export default Header;

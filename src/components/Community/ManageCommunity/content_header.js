@@ -1,7 +1,6 @@
 import { Body, Header, Icon, Left, Right, Text } from "native-base";
 import React from "react";
 import { getInitialScreen } from "../../libs/screen";
-import { getAuthMobile } from "../../services/auth";
 import styles from "./styles";
 
 class ContentHeader extends React.Component {
@@ -9,18 +8,11 @@ class ContentHeader extends React.Component {
     super(props);
 
     this.state = {
-      authMobile: null
+      //
     };
   }
 
-  async componentDidMount() {
-    const authMobile = await getAuthMobile();
-
-    this.setState({ authMobile });
-  }
-
   render() {
-    const { authMobile } = this.state;
     const { navigation, auth } = this.props;
     const { authUser } = auth;
 
@@ -31,9 +23,7 @@ class ContentHeader extends React.Component {
             type="MaterialIcons"
             name="arrow-back"
             style={styles.termsIcon}
-            onPress={() =>
-              navigation.replace(getInitialScreen(authUser, authMobile))
-            }
+            onPress={() => null}
           />
         </Left>
         <Body>

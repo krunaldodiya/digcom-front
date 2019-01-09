@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { api } from "../../libs/api";
-import { makeRequest, setAuthMobile } from "../../services";
+import { makeRequest } from "../../services";
 import { VERIFY_OTP, VERIFY_OTP_FAIL, VERIFY_OTP_SUCCESS } from "../actions";
 
 function* verifyOtp(action) {
@@ -8,8 +8,6 @@ function* verifyOtp(action) {
 
   try {
     yield call(makeRequest, api.verifyOtp, { mobile, otp });
-
-    yield call(setAuthMobile, mobile);
 
     yield put({ type: VERIFY_OTP_SUCCESS });
 
