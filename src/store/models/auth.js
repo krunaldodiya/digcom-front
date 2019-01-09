@@ -25,14 +25,17 @@ export const auth = {
 
           dispatch.auth.setAuthUser({ authUser: data.user, errors: null });
         } catch (error) {
-          console.log(error);
+          dispatch.auth.setAuthUser({ errors: error.response.data });
         }
       },
       async updateAuthUser(payload) {
         const { navigation, authUser } = payload;
 
         try {
-          const response = await makeRequest(api.updateUserProfile, authUser);
+          const response = await makeRequest(api.updateUserProfile, {
+            ...authUser,
+            status: true
+          });
 
           const { data } = response;
           const { user } = data;

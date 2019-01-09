@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { SafeAreaView } from "react-native";
-import { api } from "../../libs/api";
+import { web } from "../../libs/api";
 // components
 import TermsForm from "./form";
 import styles from "./styles";
@@ -18,7 +18,7 @@ class GetStarted extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`${api.terms}?lite`).then(({ data }) => {
+    axios.get(`${web.terms}?lite`).then(({ data }) => {
       this.setState({ terms: data });
     });
   }

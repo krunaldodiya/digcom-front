@@ -18,9 +18,6 @@ export const family = {
   reducers: {
     handleInput(state, payload) {
       return { ...state, ...payload };
-    },
-    setAuthUser(state, payload) {
-      return { ...state, ...payload };
     }
   },
   effects: dispatch => {
@@ -34,7 +31,7 @@ export const family = {
           const { data } = response;
           const { user, token } = data;
 
-          dispatch.auth.setAuthUser({ authUser: user });
+          dispatch.auth.setAuthUser({ authUser: user, errors: null });
           await setAuthToken(token);
 
           navigation.pop();
@@ -51,7 +48,7 @@ export const family = {
           const { data } = response;
           const { user, token } = data;
 
-          dispatch.auth.setAuthUser({ authUser: user });
+          dispatch.auth.setAuthUser({ authUser: user, errors: null });
           await setAuthToken(token);
 
           navigation.pop();

@@ -47,7 +47,7 @@ export const otp = {
           const { data } = response;
           const { user, token } = data;
 
-          dispatch.auth.setAuthUser({ authUser: user });
+          dispatch.auth.setAuthUser({ authUser: user, errors: null });
           await setAuthToken(token);
 
           navigation.replace(getInitialScreen(user));
