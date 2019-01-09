@@ -11,7 +11,7 @@ export const family = {
       avatar:
         "https://res.cloudinary.com/marusamaj/image/upload/v1547011790/microsoft-avatar.png",
       marital_status: "Single",
-      relation: "Self"
+      relation: null
     },
     errors: null
   },
@@ -26,7 +26,7 @@ export const family = {
         const { member, navigation } = payload;
 
         try {
-          const response = await makeRequest(api.login, { user_id: member.id });
+          const response = await makeRequest(api.switchMember, { user_id: member.id });
 
           const { data } = response;
           const { user, token } = data;
@@ -43,7 +43,7 @@ export const family = {
         const { navigation, authUser } = payload;
 
         try {
-          const response = await makeRequest(api.register, authUser);
+          const response = await makeRequest(api.addMember, authUser);
 
           const { data } = response;
           const { user, token } = data;

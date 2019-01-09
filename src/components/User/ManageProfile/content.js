@@ -71,7 +71,6 @@ class Content extends React.Component {
 
         <View style={{ alignItems: "center", marginTop: 30, marginBottom: 10 }}>
           <Switch
-            {...this.props}
             width={250}
             options={["Male", "Female"]}
             selected={authUser.gender}
@@ -113,9 +112,8 @@ class Content extends React.Component {
         </View>
 
         <View style={styles.inputWrapper}>
-          {modalVisible && (
+          {modalVisible === "marital_status" && (
             <ListModal
-              {...this.props}
               data={{
                 modalVisible,
                 items: ["Single", "Married", "Divorcee", "widow", "widower"]
@@ -128,7 +126,7 @@ class Content extends React.Component {
           <Button
             transparent
             style={styles.input(null)}
-            onPress={() => this.setState({ modalVisible: true })}
+            onPress={() => this.setState({ modalVisible: "marital_status" })}
           >
             <Text style={{ fontFamily: theme.fonts.TitilliumWebRegular }}>
               {authUser.marital_status}

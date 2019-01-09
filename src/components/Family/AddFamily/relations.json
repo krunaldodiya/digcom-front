@@ -1,10 +1,4 @@
 {
-  "Male": {
-    "Married": ["Friend", "Brother", "Son", "Father", "Husband"],
-    "Single": ["Friend", "Brother", "Son"]
-  },
-  "Female": {
-    "Married": ["Friend", "Sister", "Daughter", "Mother", "Wife"],
-    "Single": ["Friend", "Sister", "Daughter"]
-  }
+  "Male": ["Brother", "Son", "Father", "Husband"],
+  "Female": ["Sister", "Daughter", "Mother", "Wife"]
 }

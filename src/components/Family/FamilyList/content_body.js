@@ -1,17 +1,6 @@
-import axios from "axios";
-import {
-  Body,
-  Button,
-  Left,
-  List,
-  ListItem,
-  Text,
-  Thumbnail,
-  View
-} from "native-base";
+import { Body, Button, Left, List, ListItem, Text, Thumbnail, View } from "native-base";
 import React from "react";
 import { FlatList } from "react-native-gesture-handler";
-import { api } from "../../../libs/api";
 import theme from "../../../libs/theme";
 
 class ContentBody extends React.Component {
@@ -20,22 +9,8 @@ class ContentBody extends React.Component {
 
     this.state = {
       loading: false,
-      mobile: null,
       users: []
     };
-  }
-
-  async componentWillMount() {
-    this.setState({ loading: true });
-
-    axios
-      .post(api.getUsersByMobile, { mobile })
-      .then(({ data }) => {
-        this.setState({ users: data.users, mobile, loading: false });
-      })
-      .catch(() => {
-        this.setState({ users: [], mobile, loading: false });
-      });
   }
 
   renderItem = data => {

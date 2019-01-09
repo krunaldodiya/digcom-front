@@ -23,7 +23,7 @@ class Header extends React.Component {
             })
           }
         >
-          <Text style={styles.submitButtonText}>FINISH</Text>
+          <Text style={styles.submitButtonText}>ADD</Text>
         </TouchableOpacity>
       </View>
     );
