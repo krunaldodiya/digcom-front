@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getCommunities: dispatch.communities.getCommunities,
-  selectCommunity: dispatch.communities.selectCommunity
+  selectCommunity: dispatch.communities.selectCommunity,
+  skipCommunity: dispatch.communities.skipCommunity
 });
 
 export default connect(

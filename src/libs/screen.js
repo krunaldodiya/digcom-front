@@ -1,16 +1,16 @@
 const getInitialScreen = authUser => {
   if (authUser) {
-    const { status, community } = authUser;
+    const { status, setting } = authUser;
 
     if (!status) {
       return "ManageProfileScreen";
     }
 
-    if (!community) {
+    if (!setting.skip_community) {
       return "ManageCommunityScreen";
     }
 
-    return "AddFamilyScreen";
+    return "TabsScreen";
   }
 
   return "GetStartedScreen";

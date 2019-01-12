@@ -12,7 +12,7 @@ class ContentHeader extends React.Component {
   }
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, skipCommunity } = this.props;
 
     return (
       <Header style={styles.termsWrapper} androidStatusBarColor="#d80402">
@@ -33,7 +33,7 @@ class ContentHeader extends React.Component {
           <Button
             small
             transparent
-            onPress={() => navigation.replace("HomeScreen")}
+            onPress={() => skipCommunity({ navigation })}
           >
             <Text style={{ color: "white" }}>Skip</Text>
           </Button>

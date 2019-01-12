@@ -30,7 +30,22 @@ export const communities = {
         const { communityData, navigation } = payload;
 
         try {
-          const response = await makeRequest(api.addCommunity, communityData);
+          const response = await makeRequest(api.selectCommunity, communityData);
+
+          const { data } = response;
+          const { communities } = data;
+
+          dispatch.communities.setCommunities({ communities });
+          navigation.goBack();
+        } catch (error) {
+          dispatch.communities.setCommunities({ errors: error.response.data });
+        }
+      },
+      async skipCommunity(payload, rootState) {
+        const { communityData, navigation } = payload;
+
+        try {
+          const response = await makeRequest(api.skipCommunity, communityData);
 
           const { data } = response;
           const { communities } = data;

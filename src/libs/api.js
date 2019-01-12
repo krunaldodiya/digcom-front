@@ -8,8 +8,9 @@ const resource = {
     terms: `${httpUrl}/terms`
   },
   api: {
-    getCommunities: `${httpUrl}/api/communities`,
-    addCommunity: `${httpUrl}/api/communities/add`,
+    getCommunities: `${httpUrl}/api/communities/get`,
+    selectCommunity: `${httpUrl}/api/communities/select`,
+    skipCommunity: `${httpUrl}/api/communities/skip`,
     requestOtp: `${httpUrl}/api/otp/request-otp`,
     verifyOtp: `${httpUrl}/api/otp/verify-otp`,
     me: `${httpUrl}/api/users/me`,

@@ -13,10 +13,10 @@ import GetStartedScreen from "./src/containers/GetStartedScreen";
 import ManageCommunityScreen from "./src/containers/ManageCommunityScreen";
 import ManageProfileScreen from "./src/containers/ManageProfileScreen";
 import RequestOtpScreen from "./src/containers/RequestOtpScreen";
-import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
 // import SearchScreen from "./src/containers/SearchScreen";
 // import SettingsScreen from "./src/containers/SettingsScreen";
-// import TabsScreen from "./src/containers/TabsScreen";
+import TabsScreen from "./src/containers/TabsScreen";
+import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
 // import UserDetailScreen from "./src/containers/UserDetailScreen";
 // libs & services
 import { getInitialScreen } from "./src/libs/screen";
@@ -31,7 +31,7 @@ const getAppNavigator = initialRouteName => {
       ManageProfileScreen: { screen: ManageProfileScreen },
       AddFamilyScreen: { screen: AddFamilyScreen },
       ManageCommunityScreen: { screen: ManageCommunityScreen },
-      // TabsScreen: { screen: TabsScreen },
+      TabsScreen: { screen: TabsScreen }
       // AddRelationScreen: { screen: AddRelationScreen },
       // AddRelativeScreen: { screen: AddRelativeScreen },
       // UserDetailScreen: { screen: UserDetailScreen },
@@ -85,7 +85,7 @@ class App extends React.Component {
     const noConnection = connection && connection.type === "none";
     const hasConnection = connection && connection.type !== "none";
 
-    const initialRouteName = getInitialScreen(authUser);    
+    const initialRouteName = getInitialScreen(authUser);
     const AppNavigator = getAppNavigator(initialRouteName);
     const AppContainer = createAppContainer(AppNavigator);
 
