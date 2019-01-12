@@ -27,33 +27,39 @@ export const communities = {
       },
 
       async selectCommunity(payload, rootState) {
-        const { communityData, navigation } = payload;
+        const { navigation, community, select_community } = payload;
 
         try {
-          const response = await makeRequest(api.selectCommunity, communityData);
+          const response = await makeRequest(api.selectCommunity, {
+            community
+          });
 
           const { data } = response;
-          const { communities } = data;
+          const { user } = data;
 
-          dispatch.communities.setCommunities({ communities });
-          navigation.goBack();
+          dispatch.auth.setAuthUser({ authUser: user });
+          if (select_community) {
+            navigation.goBack();
+          } else {
+            navigation.replace("TabsScreen");
+          }
         } catch (error) {
-          dispatch.communities.setCommunities({ errors: error.response.data });
+          console.log(error);
         }
       },
       async skipCommunity(payload, rootState) {
-        const { communityData, navigation } = payload;
+        const { navigation, select_community } = payload;
 
-        try {
-          const response = await makeRequest(api.skipCommunity, communityData);
-
-          const { data } = response;
-          const { communities } = data;
-
-          dispatch.communities.setCommunities({ communities });
+        if (select_community) {
           navigation.goBack();
-        } catch (error) {
-          dispatch.communities.setCommunities({ errors: error.response.data });
+        } else {
+          navigation.replace("TabsScreen");
+
+          try {
+            await makeRequest(api.skipCommunity);
+          } catch (error) {
+            console.log(error);
+          }
         }
       }
     };

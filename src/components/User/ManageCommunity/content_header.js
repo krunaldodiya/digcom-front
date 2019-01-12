@@ -12,14 +12,14 @@ class ContentHeader extends React.Component {
   }
 
   render() {
-    const { navigation, skipCommunity } = this.props;
+    const { navigation, skipCommunity, select_community } = this.props;
 
     return (
       <Header style={styles.termsWrapper} androidStatusBarColor="#d80402">
         <Left>
           <Icon
             type="MaterialIcons"
-            name="arrow-back"
+            name="group"
             style={styles.termsIcon}
             onPress={() => null}
           />
@@ -33,9 +33,13 @@ class ContentHeader extends React.Component {
           <Button
             small
             transparent
-            onPress={() => skipCommunity({ navigation })}
+            onPress={() => {
+              return skipCommunity({ navigation, select_community });
+            }}
           >
-            <Text style={{ color: "white" }}>Skip</Text>
+            <Text style={{ color: "white" }}>
+              {select_community ? "cancel" : "skip"}
+            </Text>
           </Button>
         </Right>
       </Header>

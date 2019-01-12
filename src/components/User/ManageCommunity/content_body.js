@@ -53,7 +53,12 @@ class ContentBody extends React.Component {
 
   renderItem = data => {
     const community = data.item;
-    const { register, navigation, loading } = this.props;
+    const {
+      navigation,
+      loading,
+      selectCommunity,
+      select_community
+    } = this.props;
 
     if (loading.models.communities) {
       return false;
@@ -108,7 +113,7 @@ class ContentBody extends React.Component {
               rounded
               bordered
               onPress={() => {
-                register({ navigation, community_id: community.id });
+                selectCommunity({ navigation, community, select_community });
               }}
             >
               <Text style={{ fontSize: 12 }}>select</Text>
