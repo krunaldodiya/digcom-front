@@ -1,9 +1,9 @@
 import React from "react";
 import { KeyboardAvoidingView, SafeAreaView } from "react-native";
+import { getContacts } from "../../../services";
 import Loader from "../../Shared/Loader";
 import Content from "./content";
 import Header from "./header";
-import Contacts from "react-native-contacts";
 
 class ManageProfile extends React.Component {
   constructor(props) {
@@ -14,27 +14,15 @@ class ManageProfile extends React.Component {
     };
   }
 
-  componentWillMount() {
-    Contacts.checkPermission((err, permission) => {
-      if (err) throw err;
+  async componentWillMount() {
+    const { auth } = this.props;
+    const { authUser } = auth;
 
-      if (permission === "undefined") {
-        Contacts.requestPermission((err, permission) => {
-          this.getAllContacts();
-        });
-      }
-
-      if (permission === "authorized") {
-        this.getAllContacts();
-      }
-    });
-  }
-
-  getAllContacts = () => {
-    Contacts.getAllWithoutPhotos((error, contacts) => {
+    if (authUser.contacts.length === 0) {
+      const contacts = await getContacts();
       console.log(contacts);
-    });
-  };
+    }
+  }
 
   toggleKeyboardAvoidView = avoidKeyboard => {
     this.setState({ avoidKeyboard });

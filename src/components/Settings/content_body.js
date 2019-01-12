@@ -192,7 +192,7 @@ class ContentBody extends React.Component {
                 danger
                 rounded
                 onPress={() => {
-                  updateSettings({ authUser, url: api.updateSecondaryMobile });
+                  updateSettings({ authUser, url: api.changeMobile });
                 }}
               >
                 <Text

@@ -9,7 +9,6 @@ import Switch from "../../Shared/Switch";
 import styles from "./styles";
 
 const relations = require("./relations.json");
-console.log(relations["Male"]["Married"]);
 
 class Content extends React.Component {
   constructor(props) {
