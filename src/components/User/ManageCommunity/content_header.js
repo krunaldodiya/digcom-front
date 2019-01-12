@@ -1,6 +1,5 @@
-import { Body, Header, Icon, Left, Right, Text } from "native-base";
+import { Body, Header, Icon, Left, Right, Text, Button } from "native-base";
 import React from "react";
-import { getInitialScreen } from "../../libs/screen";
 import styles from "./styles";
 
 class ContentHeader extends React.Component {
@@ -13,8 +12,7 @@ class ContentHeader extends React.Component {
   }
 
   render() {
-    const { navigation, auth } = this.props;
-    const { authUser } = auth;
+    const { navigation } = this.props;
 
     return (
       <Header style={styles.termsWrapper} androidStatusBarColor="#d80402">
@@ -31,7 +29,15 @@ class ContentHeader extends React.Component {
             Select Community
           </Text>
         </Body>
-        <Right />>
+        <Right>
+          <Button
+            small
+            transparent
+            onPress={() => navigation.replace("HomeScreen")}
+          >
+            <Text style={{ color: "white" }}>Skip</Text>
+          </Button>
+        </Right>
       </Header>
     );
   }

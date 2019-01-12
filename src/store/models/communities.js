@@ -15,7 +15,7 @@ export const communities = {
     return {
       async getCommunities(payload, rootState) {
         try {
-          const response = await makeRequest(api.getCommunities, {});
+          const response = await makeRequest(api.getCommunities);
 
           const { data } = response;
           const { communities } = data;
@@ -26,7 +26,7 @@ export const communities = {
         }
       },
 
-      async addCommunity(payload, rootState) {
+      async selectCommunity(payload, rootState) {
         const { communityData, navigation } = payload;
 
         try {

@@ -14,6 +14,7 @@ const resource = {
     verifyOtp: `${httpUrl}/api/otp/verify-otp`,
     me: `${httpUrl}/api/users/me`,
     getUserById: `${httpUrl}/api/users/id`,
+    updateUserContacts: `${httpUrl}/api/users/contacts/update`,
     updateUserProfile: `${httpUrl}/api/users/profile/update`,
     getUsers: `${httpUrl}/api/users/all`,
     switchMember: `${httpUrl}/api/family/add`,

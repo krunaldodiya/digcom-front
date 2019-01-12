@@ -16,7 +16,7 @@ import {
 } from "native-base";
 import React from "react";
 import { FlatList } from "react-native-gesture-handler";
-import theme from "../../libs/theme";
+import theme from "../../../libs/theme";
 
 class ContentBody extends React.Component {
   constructor(props) {
@@ -98,7 +98,7 @@ class ContentBody extends React.Component {
                 fontFamily: theme.fonts.TitilliumWebRegular
               }}
             >
-              {community.description}
+              {community.religion}
             </Text>
           </Body>
 

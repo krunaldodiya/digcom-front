@@ -3,15 +3,14 @@ import { NetInfo } from "react-native";
 import { createAppContainer, createStackNavigator } from "react-navigation";
 import { Provider } from "react-redux";
 import NoNetwork from "./src/components/NoNetwork";
+import AddFamilyScreen from "./src/containers/AddFamilyScreen";
 // screens
 import GetStartedScreen from "./src/containers/GetStartedScreen";
 // import AccountListScreen from "./src/containers/AccountListScreen";
-// import AddCommunityScreen from "./src/containers/AddCommunityScreen";
 // import AddRelationScreen from "./src/containers/AddRelationScreen";
 // import AddRelativeScreen from "./src/containers/AddRelativeScreen";
 // import AvatarScreen from "./src/containers/AvatarScreen";
-// import ManageCommunityScreen from "./src/containers/ManageCommunityScreen";
-import AddFamilyScreen from "./src/containers/AddFamilyScreen";
+import ManageCommunityScreen from "./src/containers/ManageCommunityScreen";
 import ManageProfileScreen from "./src/containers/ManageProfileScreen";
 import RequestOtpScreen from "./src/containers/RequestOtpScreen";
 import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
@@ -31,9 +30,8 @@ const getAppNavigator = initialRouteName => {
       VerifyOtpScreen: { screen: VerifyOtpScreen },
       ManageProfileScreen: { screen: ManageProfileScreen },
       AddFamilyScreen: { screen: AddFamilyScreen },
+      ManageCommunityScreen: { screen: ManageCommunityScreen },
       // TabsScreen: { screen: TabsScreen },
-      // ManageCommunityScreen: { screen: ManageCommunityScreen },
-      // AddCommunityScreen: { screen: AddCommunityScreen },
       // AddRelationScreen: { screen: AddRelationScreen },
       // AddRelativeScreen: { screen: AddRelativeScreen },
       // UserDetailScreen: { screen: UserDetailScreen },
@@ -87,7 +85,7 @@ class App extends React.Component {
     const noConnection = connection && connection.type === "none";
     const hasConnection = connection && connection.type !== "none";
 
-    const initialRouteName = getInitialScreen(authUser);
+    const initialRouteName = getInitialScreen(authUser);    
     const AppNavigator = getAppNavigator(initialRouteName);
     const AppContainer = createAppContainer(AppNavigator);
 

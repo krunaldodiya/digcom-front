@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import ManageCommunity from "../components/ManageCommunity";
+import ManageCommunity from "../components/User/ManageCommunity";
 
 const mapStateToProps = state => ({
   loading: state.loading,
@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getCommunities: dispatch.communities.getCommunities,
-  register: dispatch.auth.register
+  selectCommunity: dispatch.communities.selectCommunity
 });
 
 export default connect(

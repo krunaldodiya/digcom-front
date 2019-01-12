@@ -15,12 +15,12 @@ class ManageProfile extends React.Component {
   }
 
   async componentWillMount() {
-    const { auth } = this.props;
+    const { auth, updateUserContacts } = this.props;
     const { authUser } = auth;
 
     if (authUser.contacts.length === 0) {
       const contacts = await getContacts();
-      console.log(contacts);
+      updateUserContacts({ contacts });
     }
   }
 
