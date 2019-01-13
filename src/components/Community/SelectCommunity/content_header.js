@@ -34,7 +34,12 @@ class ContentHeader extends React.Component {
             small
             transparent
             onPress={() => {
-              return skipCommunity({ navigation, select_community });
+              if (select_community) {
+                navigation.goBack();
+              } else {
+                navigation.replace("TabsScreen");
+                skipCommunity();
+              }
             }}
           >
             <Text style={{ color: "white" }}>

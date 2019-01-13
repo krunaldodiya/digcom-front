@@ -2,18 +2,33 @@ import { Text, Thumbnail, View } from "native-base";
 import React from "react";
 import theme from "../../../libs/theme";
 
-class CommunityTab extends React.Component {
+import { TouchableOpacity } from "react-native";
+
+class Groups extends React.Component {
   render() {
+    const { navigation, auth } = this.props;
+    const { authUser } = auth;
+
     return (
       <View style={{ flex: 1 }}>
-        <View style={{ padding: 15 }}>
+        <TouchableOpacity
+          style={{ padding: 15 }}
+          onPress={() => {
+            if (authUser.community) {
+              navigation.push("EventsScreen");
+            } else {
+              navigation.push("SelectCommunityScreen", {
+                select_community: true
+              });
+            }
+          }}
+        >
           <View style={{ flexDirection: "row" }}>
             <View style={{ justifyContent: "center" }}>
               <Thumbnail
                 circular
                 source={{
-                  uri:
-                    "https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png"
+                  uri: "https://image.flaticon.com/icons/png/128/55/55238.png"
                 }}
                 style={{ height: 50, width: 50 }}
               />
@@ -25,8 +40,9 @@ class CommunityTab extends React.Component {
                   fontSize: 16
                 }}
               >
-                Vankar Community
+                Upcoming Events
               </Text>
+
               <Text
                 style={{
                   marginTop: 2,
@@ -34,11 +50,11 @@ class CommunityTab extends React.Component {
                   fontSize: 14
                 }}
               >
-                1,750 members
+                Community
               </Text>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
 
         <View style={{ flex: 1 }}>
           <View
@@ -256,4 +272,4 @@ class CommunityTab extends React.Component {
   }
 }
 
-export default CommunityTab;
+export default Groups;

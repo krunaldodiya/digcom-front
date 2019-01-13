@@ -3,9 +3,10 @@ import React from "react";
 import SideDrawer from "../../components/Shared/SideDrawer";
 import TopBar from "../../components/Shared/TopBar";
 import theme from "../../libs/theme";
-import ChannelTab from "./ChannelTab";
-import CommunityTab from "./CommunityTab";
-import EventTab from "./EventTab";
+// tabs
+import Contacts from "./Contacts";
+import Groups from "./Groups";
+import Timeline from "./Timeline";
 
 class HomeTabs extends React.Component {
   render() {
@@ -32,7 +33,7 @@ class HomeTabs extends React.Component {
             tabStyle={{ backgroundColor: "#d80402" }}
             activeTabStyle={{ backgroundColor: "#d80402" }}
           >
-            <EventTab {...this.props} />
+            <Timeline {...this.props} />
           </Tab>
 
           <Tab
@@ -48,7 +49,7 @@ class HomeTabs extends React.Component {
             tabStyle={{ backgroundColor: "#d80402" }}
             activeTabStyle={{ backgroundColor: "#d80402" }}
           >
-            <CommunityTab {...this.props} />
+            <Groups {...this.props} />
           </Tab>
 
           <Tab
@@ -64,7 +65,7 @@ class HomeTabs extends React.Component {
             tabStyle={{ backgroundColor: "#d80402" }}
             activeTabStyle={{ backgroundColor: "#d80402" }}
           >
-            <ChannelTab {...this.props} />
+            <Contacts {...this.props} />
           </Tab>
         </Tabs>
       </SideDrawer>

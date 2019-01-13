@@ -38,28 +38,16 @@ export const communities = {
           const { user } = data;
 
           dispatch.auth.setAuthUser({ authUser: user });
-          if (select_community) {
-            navigation.goBack();
-          } else {
-            navigation.replace("TabsScreen");
-          }
+          navigation.replace(select_community ? "EventsScreen" : "TabsScreen");
         } catch (error) {
           console.log(error);
         }
       },
       async skipCommunity(payload, rootState) {
-        const { navigation, select_community } = payload;
-
-        if (select_community) {
-          navigation.goBack();
-        } else {
-          navigation.replace("TabsScreen");
-
-          try {
-            await makeRequest(api.skipCommunity);
-          } catch (error) {
-            console.log(error);
-          }
+        try {
+          await makeRequest(api.skipCommunity);
+        } catch (error) {
+          console.log(error);
         }
       }
     };

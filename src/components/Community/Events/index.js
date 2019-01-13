@@ -1,16 +1,16 @@
 import { Text, View } from "native-base";
 import React from "react";
 
-class ChannelTab extends React.Component {
+class Events extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
         <View style={{ padding: 10 }}>
-          <Text>No channels subscribed yet.</Text>
+          <Text>No events published yet.</Text>
         </View>
       </View>
     );
   }
 }
 
-export default ChannelTab;
+export default Events;

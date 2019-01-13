@@ -7,10 +7,10 @@ import ContentHeader from "./content_header";
 class SelectCommunity extends React.Component {
   render() {
     const { loading, navigation } = this.props;
-    const { params } = navigation;
+    const { params } = navigation.state;
 
     const select_community = params && params.select_community;
-
+    
     return (
       <Container style={{ flex: 1 }}>
         <Loader loading={loading.models.selectCommunity} />
