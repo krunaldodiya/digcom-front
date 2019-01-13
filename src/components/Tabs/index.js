@@ -20,7 +20,7 @@ class HomeTabs extends React.Component {
           tabBarPosition="top"
         >
           <Tab
-            heading="Events"
+            heading="Timeline"
             textStyle={{
               color: "#dedede",
               fontFamily: theme.fonts.TitilliumWebRegular
@@ -36,7 +36,7 @@ class HomeTabs extends React.Component {
           </Tab>
 
           <Tab
-            heading="Community"
+            heading="Groups"
             textStyle={{
               color: "#dedede",
               fontFamily: theme.fonts.TitilliumWebRegular
@@ -52,7 +52,7 @@ class HomeTabs extends React.Component {
           </Tab>
 
           <Tab
-            heading="Channels"
+            heading="Contacts"
             textStyle={{
               color: "#dedede",
               fontFamily: theme.fonts.TitilliumWebRegular

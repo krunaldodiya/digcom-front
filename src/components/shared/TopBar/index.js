@@ -21,7 +21,7 @@ const TopBar = props => {
         />
       </Left>
       <Body>
-        <Title>MyCommunity</Title>
+        <Title>IndiCom</Title>
       </Body>
       <Right>
         <Icon
