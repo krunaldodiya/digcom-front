@@ -6,63 +6,59 @@ class CommunityTab extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <View
-          style={{
-            margin: 5,
-            padding: 5,
-            borderBottomWidth: 1,
-            borderBottomColor: "#ccc"
-          }}
-        >
-          <View>
-            <Text
-              style={{
-                fontFamily: theme.fonts.TitilliumWebSemiBold,
-                fontSize: 16,
-                color: "#000"
-              }}
-            >
-              Upcoming Birthday
-            </Text>
-          </View>
-
-          <View style={{ margin: 5, padding: 5 }}>
-            <View style={{ flexDirection: "row" }}>
-              <View style={{ justifyContent: "center" }}>
-                <Thumbnail
-                  circular
-                  source={{
-                    uri:
-                      "https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png"
-                  }}
-                  style={{ height: 50, width: 50 }}
-                />
-              </View>
-              <View style={{ marginLeft: 10 }}>
-                <Text
-                  style={{
-                    fontFamily: theme.fonts.TitilliumWebSemiBold,
-                    fontSize: 16
-                  }}
-                >
-                  Krunal Dodiya
-                </Text>
-
-                <Text
-                  style={{
-                    marginTop: 2,
-                    fontFamily: theme.fonts.TitilliumWebRegular,
-                    fontSize: 14
-                  }}
-                >
-                  27 June
-                </Text>
-              </View>
+        <View style={{ padding: 15 }}>
+          <View style={{ flexDirection: "row" }}>
+            <View style={{ justifyContent: "center" }}>
+              <Thumbnail
+                circular
+                source={{
+                  uri:
+                    "https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png"
+                }}
+                style={{ height: 50, width: 50 }}
+              />
+            </View>
+            <View style={{ marginLeft: 10 }}>
+              <Text
+                style={{
+                  fontFamily: theme.fonts.TitilliumWebSemiBold,
+                  fontSize: 16
+                }}
+              >
+                Vankar Community
+              </Text>
+              <Text
+                style={{
+                  marginTop: 2,
+                  fontFamily: theme.fonts.TitilliumWebRegular,
+                  fontSize: 14
+                }}
+              >
+                1,750 members
+              </Text>
             </View>
           </View>
         </View>
 
-        <View style={{ margin: 5, padding: 5 }}>
+        <View style={{ flex: 1 }}>
+          <View
+            style={{
+              backgroundColor: "#ccc",
+              paddingVertical: 10,
+              paddingLeft: 15
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: theme.fonts.TitilliumWebRegular,
+                fontSize: 14,
+                color: "#000"
+              }}
+            >
+              Suggestions
+            </Text>
+          </View>
+
           <View style={{ margin: 5, padding: 5 }}>
             <View style={{ flexDirection: "row" }}>
               <View style={{ justifyContent: "center" }}>
@@ -82,7 +78,7 @@ class CommunityTab extends React.Component {
                     fontSize: 16
                   }}
                 >
-                  Directory
+                  Rajnikant VS CID Jokes
                 </Text>
 
                 <Text
@@ -92,7 +88,7 @@ class CommunityTab extends React.Component {
                     fontSize: 14
                   }}
                 >
-                  4,250 members
+                  Entertainment
                 </Text>
               </View>
             </View>
@@ -117,7 +113,7 @@ class CommunityTab extends React.Component {
                     fontSize: 16
                   }}
                 >
-                  Matrimony
+                  Breaking News of Gujarat
                 </Text>
 
                 <Text
@@ -127,7 +123,7 @@ class CommunityTab extends React.Component {
                     fontSize: 14
                   }}
                 >
-                  250 subscribers
+                  News
                 </Text>
               </View>
             </View>
@@ -151,7 +147,7 @@ class CommunityTab extends React.Component {
                     fontSize: 16
                   }}
                 >
-                  Jobs
+                  Government Jobs in Gujarat
                 </Text>
 
                 <Text
@@ -161,23 +157,29 @@ class CommunityTab extends React.Component {
                     fontSize: 14
                   }}
                 >
-                  250 vacancies
+                  Jobs
                 </Text>
               </View>
             </View>
           </View>
         </View>
 
-        <View style={{ margin: 5, padding: 5 }}>
-          <View>
+        <View style={{ flex: 1 }}>
+          <View
+            style={{
+              backgroundColor: "#ccc",
+              paddingVertical: 10,
+              paddingLeft: 15
+            }}
+          >
             <Text
               style={{
-                fontFamily: theme.fonts.TitilliumWebSemiBold,
-                fontSize: 16,
+                fontFamily: theme.fonts.TitilliumWebRegular,
+                fontSize: 14,
                 color: "#000"
               }}
             >
-              Channels
+              Subscriptions
             </Text>
           </View>
 
@@ -199,7 +201,7 @@ class CommunityTab extends React.Component {
                     fontSize: 16
                   }}
                 >
-                  Meetings
+                  Stock Market News
                 </Text>
 
                 <Text
@@ -209,7 +211,7 @@ class CommunityTab extends React.Component {
                     fontSize: 14
                   }}
                 >
-                  All Vankar
+                  News
                 </Text>
               </View>
             </View>
@@ -233,7 +235,7 @@ class CommunityTab extends React.Component {
                     fontSize: 16
                   }}
                 >
-                  Bhandaro
+                  Gujarat - Election Commission 2019
                 </Text>
 
                 <Text
@@ -243,7 +245,7 @@ class CommunityTab extends React.Component {
                     fontSize: 14
                   }}
                 >
-                  2284 Vankar Samaj
+                  Politics
                 </Text>
               </View>
             </View>
