@@ -55,7 +55,7 @@ class CommunityTab extends React.Component {
                 color: "#000"
               }}
             >
-              Suggestions
+              Top Groups
             </Text>
           </View>
 
@@ -179,7 +179,7 @@ class CommunityTab extends React.Component {
                 color: "#000"
               }}
             >
-              Subscriptions
+              My Groups
             </Text>
           </View>
 

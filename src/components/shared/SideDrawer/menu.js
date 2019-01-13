@@ -88,101 +88,6 @@ Menu = props => {
               toggleDrawer({ isOpen: false });
               navigation.push("SettingsScreen");
             }}
-            style={{ marginTop: 15, marginBottom: 15, marginLeft: 15 }}
-          >
-            <Text
-              style={{
-                color: "#333",
-                fontFamily: theme.fonts.TitilliumWebRegular,
-                fontSize: 14
-              }}
-            >
-              Settings
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => {
-              toggleDrawer({ isOpen: false });
-              navigation.push("SettingsScreen");
-            }}
-            style={{ marginTop: 0, marginBottom: 15, marginLeft: 15 }}
-          >
-            <Text
-              style={{
-                color: "#333",
-                fontFamily: theme.fonts.TitilliumWebRegular,
-                fontSize: 14
-              }}
-            >
-              Community
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View type="family">
-          <View style={{ backgroundColor: "lightblue", padding: 15 }}>
-            <Text
-              style={{
-                fontFamily: theme.fonts.TitilliumWebRegular,
-                fontSize: 16,
-                color: "black"
-              }}
-            >
-              Family
-            </Text>
-          </View>
-
-          <TouchableOpacity
-            onPress={() => {
-              toggleDrawer({ isOpen: false });
-              navigation.push("SettingsScreen");
-            }}
-            style={{ marginTop: 15, marginBottom: 15, marginLeft: 15 }}
-          >
-            <Text
-              style={{
-                color: "#333",
-                fontFamily: theme.fonts.TitilliumWebRegular,
-                fontSize: 14
-              }}
-            >
-              My Family
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => {
-              toggleDrawer({ isOpen: false });
-              navigation.navigate("AddRelativeScreen");
-            }}
-            style={{ marginTop: 0, marginBottom: 15, marginLeft: 15 }}
-          >
-            <Text
-              style={{
-                color: "#333",
-                fontFamily: theme.fonts.TitilliumWebRegular,
-                fontSize: 14
-              }}
-            >
-              Add Family
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View type="help">
-          <View style={{ backgroundColor: "lightblue", padding: 15 }}>
-            <Text
-              style={{
-                fontFamily: theme.fonts.TitilliumWebRegular,
-                fontSize: 16,
-                color: "black"
-              }}
-            >
-              Help
-            </Text>
-          </View>
-
-          <TouchableOpacity
-            onPress={() => Linking.openURL(`market://details?id=${app_id}`)}
             style={{ marginTop: 15, marginBottom: 0, marginLeft: 15 }}
           >
             <Text
@@ -192,7 +97,7 @@ Menu = props => {
                 fontSize: 14
               }}
             >
-              Rate us
+              Settings
             </Text>
           </TouchableOpacity>
 
@@ -226,7 +131,87 @@ Menu = props => {
                 fontSize: 14
               }}
             >
-              Terms & Privacy Policy
+              Terms & Privacy
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => Linking.openURL(`market://details?id=${app_id}`)}
+            style={{ marginTop: 0, marginBottom: 15, marginLeft: 15 }}
+          >
+            <Text
+              style={{
+                color: "#333",
+                fontFamily: theme.fonts.TitilliumWebRegular,
+                fontSize: 14
+              }}
+            >
+              About Us
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => Linking.openURL(`market://details?id=${app_id}`)}
+            style={{ marginTop: 0, marginBottom: 15, marginLeft: 15 }}
+          >
+            <Text
+              style={{
+                color: "#333",
+                fontFamily: theme.fonts.TitilliumWebRegular,
+                fontSize: 14
+              }}
+            >
+              Contact Us
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View type="groups">
+          <View style={{ backgroundColor: "lightblue", padding: 15 }}>
+            <Text
+              style={{
+                fontFamily: theme.fonts.TitilliumWebRegular,
+                fontSize: 16,
+                color: "black"
+              }}
+            >
+              Groups
+            </Text>
+          </View>
+
+          <TouchableOpacity
+            onPress={() => {
+              toggleDrawer({ isOpen: false });
+              navigation.navigate("AddRelativeScreen");
+            }}
+            style={{ marginTop: 15, marginBottom: 15, marginLeft: 15 }}
+          >
+            <Text
+              style={{
+                color: "#333",
+                fontFamily: theme.fonts.TitilliumWebRegular,
+                fontSize: 14
+              }}
+            >
+              Create a Group
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => {
+              toggleDrawer({ isOpen: false });
+              navigation.push("SettingsScreen");
+            }}
+            style={{ marginTop: 0, marginBottom: 0, marginLeft: 15 }}
+          >
+            <Text
+              style={{
+                color: "#333",
+                fontFamily: theme.fonts.TitilliumWebRegular,
+                fontSize: 14
+              }}
+            >
+              Manage Groups
             </Text>
           </TouchableOpacity>
         </View>
@@ -259,8 +244,7 @@ Menu = props => {
           </Text>
         </TouchableOpacity>
       </View>
-
-      </View>
+    </View>
   );
 };
 
