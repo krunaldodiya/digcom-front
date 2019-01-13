@@ -7,7 +7,7 @@ const getInitialScreen = authUser => {
     }
 
     if (!setting.skip_community) {
-      return "ManageCommunityScreen";
+      return "SelectCommunityScreen";
     }
 
     return "TabsScreen";

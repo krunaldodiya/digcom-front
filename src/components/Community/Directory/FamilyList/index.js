@@ -1,10 +1,10 @@
 import { Container } from "native-base";
 import React from "react";
-import Loader from "../../../components/Shared/Loader";
+import Loader from "../../../../components/Shared/Loader";
 import ContentBody from "./content_body";
 import ContentHeader from "./content_header";
 
-class AccountList extends React.Component {
+class FamilyList extends React.Component {
   render() {
     const { loading } = this.props;
 
@@ -18,4 +18,4 @@ class AccountList extends React.Component {
   }
 }
 
-export default AccountList;
+export default FamilyList;

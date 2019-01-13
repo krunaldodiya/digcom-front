@@ -1,7 +1,7 @@
 import { Body, Button, Left, List, ListItem, Text, Thumbnail, View } from "native-base";
 import React from "react";
 import { FlatList } from "react-native-gesture-handler";
-import theme from "../../../libs/theme";
+import theme from "../../../../libs/theme";
 
 class ContentBody extends React.Component {
   constructor(props) {
@@ -102,7 +102,7 @@ class ContentBody extends React.Component {
           <Button
             small
             danger
-            onPress={() => navigation.replace("ManageCommunityScreen")}
+            onPress={() => null}
           >
             <Text
               style={{

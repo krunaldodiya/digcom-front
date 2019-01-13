@@ -4,7 +4,7 @@ import Loader from "../../Shared/Loader";
 import ContentBody from "./content_body";
 import ContentHeader from "./content_header";
 
-class ManageCommunity extends React.Component {
+class SelectCommunity extends React.Component {
   render() {
     const { loading, navigation } = this.props;
     const { params } = navigation;
@@ -21,4 +21,4 @@ class ManageCommunity extends React.Component {
   }
 }
 
-export default ManageCommunity;
+export default SelectCommunity;

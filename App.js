@@ -3,16 +3,16 @@ import { NetInfo } from "react-native";
 import { createAppContainer, createStackNavigator } from "react-navigation";
 import { Provider } from "react-redux";
 import NoNetwork from "./src/components/NoNetwork";
-import AddFamilyScreen from "./src/containers/AddFamilyScreen";
 // screens
+import FamilyListScreen from "./src/containers/FamilyListScreen";
 import GetStartedScreen from "./src/containers/GetStartedScreen";
+import ManageProfileScreen from "./src/containers/ManageProfileScreen";
+import RequestOtpScreen from "./src/containers/RequestOtpScreen";
 // import AccountListScreen from "./src/containers/AccountListScreen";
 // import AddRelationScreen from "./src/containers/AddRelationScreen";
 // import AddRelativeScreen from "./src/containers/AddRelativeScreen";
 // import AvatarScreen from "./src/containers/AvatarScreen";
-import ManageCommunityScreen from "./src/containers/ManageCommunityScreen";
-import ManageProfileScreen from "./src/containers/ManageProfileScreen";
-import RequestOtpScreen from "./src/containers/RequestOtpScreen";
+import SelectCommunityScreen from "./src/containers/SelectCommunityScreen";
 // import SearchScreen from "./src/containers/SearchScreen";
 // import SettingsScreen from "./src/containers/SettingsScreen";
 import TabsScreen from "./src/containers/TabsScreen";
@@ -29,8 +29,8 @@ const getAppNavigator = initialRouteName => {
       RequestOtpScreen: { screen: RequestOtpScreen },
       VerifyOtpScreen: { screen: VerifyOtpScreen },
       ManageProfileScreen: { screen: ManageProfileScreen },
-      AddFamilyScreen: { screen: AddFamilyScreen },
-      ManageCommunityScreen: { screen: ManageCommunityScreen },
+      FamilyListScreen: { screen: FamilyListScreen },
+      SelectCommunityScreen: { screen: SelectCommunityScreen },
       TabsScreen: { screen: TabsScreen }
       // AddRelationScreen: { screen: AddRelationScreen },
       // AddRelativeScreen: { screen: AddRelativeScreen },
