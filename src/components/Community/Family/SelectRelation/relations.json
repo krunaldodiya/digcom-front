@@ -1,0 +1,14 @@
+{
+  "Both": [
+    "Brother",
+    "Son",
+    "Father",
+    "Husband",
+    "Sister",
+    "Daughter",
+    "Mother",
+    "Wife"
+  ],
+  "Male": ["Brother", "Son", "Father", "Husband"],
+  "Female": ["Sister", "Daughter", "Mother", "Wife"]
+}

@@ -1,10 +1,8 @@
-import { Button, Icon, Right, Thumbnail } from "native-base";
+import { Thumbnail } from "native-base";
 import React from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { TextInput, TouchableOpacity, View } from "react-native";
 import { TextInputMask } from "react-native-masked-text";
-import theme from "../../../libs/theme";
 import { uploadAvatar } from "../../../services";
-import ListModal from "../../Shared/ListModal";
 import Switch from "../../Shared/Switch";
 import styles from "./styles";
 
@@ -12,9 +10,7 @@ class Content extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      modalVisible: false
-    };
+    this.state = {};
   }
 
   updateData = data => {
@@ -24,25 +20,7 @@ class Content extends React.Component {
     handleInput({ authUser: { ...authUser, ...data } });
   };
 
-  onSelect = data => {
-    const { auth, handleInput } = this.props;
-    const { authUser } = auth;
-
-    handleInput({
-      authUser: { ...authUser, ...data }
-    });
-
-    this.hideModal();
-  };
-
-  hideModal = () => {
-    this.setState({
-      modalVisible: false
-    });
-  };
-
   render() {
-    const { modalVisible } = this.state;
     const { auth, toggleKeyboardAvoidView } = this.props;
     const { authUser, errors } = auth;
 
@@ -109,36 +87,6 @@ class Content extends React.Component {
             onChangeText={dob => this.updateData({ dob })}
             style={styles.input(errors && errors.errors.dob)}
           />
-        </View>
-
-        <View style={styles.inputWrapper}>
-          {modalVisible === "marital_status" && (
-            <ListModal
-              data={{
-                modalVisible,
-                items: ["Single", "Married", "Divorcee", "widow", "widower"]
-              }}
-              hideModal={this.hideModal}
-              onSelect={marital_status => this.onSelect({ marital_status })}
-            />
-          )}
-
-          <Button
-            transparent
-            style={styles.input(null)}
-            onPress={() => this.setState({ modalVisible: "marital_status" })}
-          >
-            <Text style={{ fontFamily: theme.fonts.TitilliumWebRegular }}>
-              {authUser.marital_status}
-            </Text>
-            <Right>
-              <Icon
-                type="FontAwesome"
-                name="angle-right"
-                style={{ fontSize: 24, color: "gray", marginRight: 8 }}
-              />
-            </Right>
-          </Button>
         </View>
       </View>
     );

@@ -8,8 +8,6 @@ import ListModal from "../../Shared/ListModal";
 import Switch from "../../Shared/Switch";
 import styles from "./styles";
 
-const relations = require("./relations.json");
-
 class Content extends React.Component {
   constructor(props) {
     super(props);
@@ -133,37 +131,6 @@ class Content extends React.Component {
           >
             <Text style={{ fontFamily: theme.fonts.TitilliumWebRegular }}>
               {authUser.marital_status}
-            </Text>
-            <Right>
-              <Icon
-                type="FontAwesome"
-                name="angle-right"
-                style={{ fontSize: 24, color: "gray", marginRight: 8 }}
-              />
-            </Right>
-          </Button>
-        </View>
-
-        <View style={styles.inputWrapper}>
-          {modalVisible === "relation" && (
-            <ListModal
-              {...this.props}
-              data={{
-                modalVisible,
-                items: relations[authUser.gender]
-              }}
-              hideModal={this.hideModal}
-              onSelect={relation => this.onSelect({ relation })}
-            />
-          )}
-
-          <Button
-            transparent
-            style={styles.input(null)}
-            onPress={() => this.setState({ modalVisible: "relation" })}
-          >
-            <Text style={{ fontFamily: theme.fonts.TitilliumWebRegular }}>
-              {authUser.relation || "Choose a relation"}
             </Text>
             <Right>
               <Icon

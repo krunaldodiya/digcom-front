@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import FamilyList from "../components/Community/Directory/FamilyList";
+import FamilyList from "../components/Community/Family/FamilyList";
 
 const mapStateToProps = state => ({
   loading: state.loading,
