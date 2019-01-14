@@ -8,53 +8,103 @@ class Groups extends React.Component {
   render() {
     const { navigation, auth } = this.props;
     const { authUser } = auth;
+    const { family_members } = authUser;
 
     return (
       <View style={{ flex: 1 }}>
-        <TouchableOpacity
-          style={{ padding: 15 }}
-          onPress={() => {
-            if (authUser.community) {
-              navigation.push("EventsScreen");
-            } else {
-              navigation.push("SelectCommunityScreen", {
-                select_community: true
-              });
-            }
-          }}
-        >
-          <View style={{ flexDirection: "row" }}>
-            <View style={{ justifyContent: "center" }}>
-              <Thumbnail
-                circular
-                source={{
-                  uri: "https://image.flaticon.com/icons/png/128/55/55238.png"
-                }}
-                style={{ height: 50, width: 50 }}
-              />
-            </View>
-            <View style={{ marginLeft: 10 }}>
-              <Text
-                style={{
-                  fontFamily: theme.fonts.TitilliumWebSemiBold,
-                  fontSize: 16
-                }}
-              >
-                Upcoming Events
-              </Text>
+        <View style={{ padding: 5 }}>
+          <TouchableOpacity
+            style={{ padding: 5, margin: 5 }}
+            onPress={() => {
+              if (authUser.community) {
+                navigation.push("FamilyTreeScreen");
+              } else {
+                navigation.push("SelectCommunityScreen", {
+                  select_community: true
+                });
+              }
+            }}
+          >
+            <View style={{ flexDirection: "row" }}>
+              <View style={{ justifyContent: "center" }}>
+                <Thumbnail
+                  circular
+                  source={{
+                    uri: "https://cdn2.iconfinder.com/data/icons/family-18/100/22-128.png"
+                  }}
+                  style={{ height: 50, width: 50 }}
+                />
+              </View>
+              <View style={{ marginLeft: 10 }}>
+                <Text
+                  style={{
+                    fontFamily: theme.fonts.TitilliumWebSemiBold,
+                    fontSize: 16
+                  }}
+                >
+                  My Family
+                </Text>
 
-              <Text
-                style={{
-                  marginTop: 2,
-                  fontFamily: theme.fonts.TitilliumWebRegular,
-                  fontSize: 14
-                }}
-              >
-                Community
-              </Text>
+                <Text
+                  style={{
+                    marginTop: 2,
+                    fontFamily: theme.fonts.TitilliumWebRegular,
+                    fontSize: 14
+                  }}
+                >
+                  {family_members.length > 1
+                    ? `${family_members.length} members`
+                    : `${family_members.length} member`}
+                </Text>
+              </View>
             </View>
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{ padding: 5, margin: 5 }}
+            onPress={() => {
+              if (authUser.community) {
+                navigation.push("EventsScreen");
+              } else {
+                navigation.push("SelectCommunityScreen", {
+                  select_community: true
+                });
+              }
+            }}
+          >
+            <View style={{ flexDirection: "row" }}>
+              <View style={{ justifyContent: "center" }}>
+                <Thumbnail
+                  circular
+                  source={{
+                    uri: "https://image.flaticon.com/icons/png/128/55/55238.png"
+                  }}
+                  style={{ height: 50, width: 50 }}
+                />
+              </View>
+              <View style={{ marginLeft: 10 }}>
+                <Text
+                  style={{
+                    fontFamily: theme.fonts.TitilliumWebSemiBold,
+                    fontSize: 16
+                  }}
+                >
+                  Upcoming Events
+                </Text>
+
+                <Text
+                  style={{
+                    marginTop: 2,
+                    fontFamily: theme.fonts.TitilliumWebRegular,
+                    fontSize: 14
+                  }}
+                >
+                  Community
+                </Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+        </View>
 
         <View style={{ flex: 1 }}>
           <View
