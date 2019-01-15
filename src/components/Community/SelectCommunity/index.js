@@ -9,13 +9,13 @@ class SelectCommunity extends React.Component {
     const { loading, navigation } = this.props;
     const { params } = navigation.state;
 
-    const select_community = params && params.select_community;
+    const selected_community = params && params.selected_community;
     
     return (
       <Container style={{ flex: 1 }}>
         <Loader loading={loading.models.selectCommunity} />
-        <ContentHeader {...this.props} select_community={select_community} />
-        <ContentBody {...this.props} select_community={select_community} />
+        <ContentHeader {...this.props} selected_community={selected_community} />
+        <ContentBody {...this.props} selected_community={selected_community} />
       </Container>
     );
   }

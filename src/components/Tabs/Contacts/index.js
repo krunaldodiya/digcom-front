@@ -6,7 +6,7 @@ class Contacts extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <View style={{ padding: 10 }}>
-          <Text>No channels subscribed yet.</Text>
+          <Text>No contacts yet.</Text>
         </View>
       </View>
     );

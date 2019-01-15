@@ -3,10 +3,23 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 import theme from "../../../libs/theme";
 
-class Groups extends React.Component {
+class ContentBody extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const { auth } = props;
+    const { authUser } = auth;
+
+    this.state = {
+      authUser,
+      agree: false
+    };
+  }
+
   render() {
     const { navigation, auth } = this.props;
     const { authUser } = auth;
+    const { family_members } = authUser;
 
     return (
       <View style={{ flex: 1 }}>
@@ -14,13 +27,13 @@ class Groups extends React.Component {
           <TouchableOpacity
             style={{ padding: 5, margin: 5 }}
             onPress={() => {
-              const screen = authUser.community
-                ? "MyCommunityScreen"
-                : "SelectCommunityScreen";
-
-              navigation.push(screen, {
-                selected_community: authUser.community
-              });
+              if (authUser.community) {
+                navigation.push("FamilyTreeScreen");
+              } else {
+                navigation.push("SelectCommunityScreen", {
+                  select_community: true
+                });
+              }
             }}
           >
             <View style={{ flexDirection: "row" }}>
@@ -29,7 +42,7 @@ class Groups extends React.Component {
                   circular
                   source={{
                     uri:
-                      "https://cdn2.iconfinder.com/data/icons/teamwork-set-2/64/x-18-128.png"
+                      "https://cdn2.iconfinder.com/data/icons/family-18/100/22-128.png"
                   }}
                   style={{ height: 50, width: 50 }}
                 />
@@ -41,7 +54,7 @@ class Groups extends React.Component {
                     fontSize: 16
                   }}
                 >
-                  My Community
+                  My Family
                 </Text>
 
                 <Text
@@ -51,7 +64,54 @@ class Groups extends React.Component {
                     fontSize: 14
                   }}
                 >
-                  Events & Directory
+                  {family_members.length > 1
+                    ? `${family_members.length} members`
+                    : `${family_members.length} member`}
+                </Text>
+              </View>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{ padding: 5, margin: 5 }}
+            onPress={() => {
+              if (authUser.community) {
+                navigation.push("EventsScreen");
+              } else {
+                navigation.push("SelectCommunityScreen", {
+                  select_community: true
+                });
+              }
+            }}
+          >
+            <View style={{ flexDirection: "row" }}>
+              <View style={{ justifyContent: "center" }}>
+                <Thumbnail
+                  circular
+                  source={{
+                    uri: "https://image.flaticon.com/icons/png/128/55/55238.png"
+                  }}
+                  style={{ height: 50, width: 50 }}
+                />
+              </View>
+              <View style={{ marginLeft: 10 }}>
+                <Text
+                  style={{
+                    fontFamily: theme.fonts.TitilliumWebSemiBold,
+                    fontSize: 16
+                  }}
+                >
+                  Directory
+                </Text>
+
+                <Text
+                  style={{
+                    marginTop: 2,
+                    fontFamily: theme.fonts.TitilliumWebRegular,
+                    fontSize: 14
+                  }}
+                >
+                  1,540 members
                 </Text>
               </View>
             </View>
@@ -73,7 +133,7 @@ class Groups extends React.Component {
                 color: "#000"
               }}
             >
-              Top Groups
+              Categories
             </Text>
           </View>
 
@@ -83,7 +143,8 @@ class Groups extends React.Component {
                 <Thumbnail
                   circular
                   source={{
-                    uri: "https://image.flaticon.com/icons/png/128/55/55238.png"
+                    uri:
+                      "https://cdn2.iconfinder.com/data/icons/teamwork-set-2/64/x-18-128.png"
                   }}
                   style={{ height: 50, width: 50 }}
                 />
@@ -180,97 +241,9 @@ class Groups extends React.Component {
             </View>
           </View>
         </View>
-
-        <View style={{ flex: 1 }}>
-          <View
-            style={{
-              backgroundColor: "#ccc",
-              paddingVertical: 10,
-              paddingLeft: 15
-            }}
-          >
-            <Text
-              style={{
-                fontFamily: theme.fonts.TitilliumWebRegular,
-                fontSize: 14,
-                color: "#000"
-              }}
-            >
-              My Groups
-            </Text>
-          </View>
-
-          <View style={{ margin: 5, padding: 5 }}>
-            <View style={{ flexDirection: "row" }}>
-              <View style={{ justifyContent: "center" }}>
-                <Thumbnail
-                  circular
-                  source={{
-                    uri: "https://image.flaticon.com/icons/png/128/55/55238.png"
-                  }}
-                  style={{ height: 50, width: 50 }}
-                />
-              </View>
-              <View style={{ marginLeft: 10 }}>
-                <Text
-                  style={{
-                    fontFamily: theme.fonts.TitilliumWebSemiBold,
-                    fontSize: 16
-                  }}
-                >
-                  Stock Market News
-                </Text>
-
-                <Text
-                  style={{
-                    marginTop: 2,
-                    fontFamily: theme.fonts.TitilliumWebRegular,
-                    fontSize: 14
-                  }}
-                >
-                  News
-                </Text>
-              </View>
-            </View>
-          </View>
-
-          <View style={{ margin: 5, padding: 5 }}>
-            <View style={{ flexDirection: "row" }}>
-              <View style={{ justifyContent: "center" }}>
-                <Thumbnail
-                  circular
-                  source={{
-                    uri: "https://image.flaticon.com/icons/png/128/55/55238.png"
-                  }}
-                  style={{ height: 50, width: 50 }}
-                />
-              </View>
-              <View style={{ marginLeft: 10 }}>
-                <Text
-                  style={{
-                    fontFamily: theme.fonts.TitilliumWebSemiBold,
-                    fontSize: 16
-                  }}
-                >
-                  Gujarat - Election Commission 2019
-                </Text>
-
-                <Text
-                  style={{
-                    marginTop: 2,
-                    fontFamily: theme.fonts.TitilliumWebRegular,
-                    fontSize: 14
-                  }}
-                >
-                  Politics
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
       </View>
     );
   }
 }
 
-export default Groups;
+export default ContentBody;

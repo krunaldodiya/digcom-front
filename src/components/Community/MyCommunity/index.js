@@ -3,7 +3,7 @@ import React from "react";
 import ContentBody from "./content_body";
 import ContentHeader from "./content_header";
 
-class Events extends React.Component {
+class MyCommunity extends React.Component {
   render() {
     return (
       <Container style={{ flex: 1 }}>
@@ -14,4 +14,4 @@ class Events extends React.Component {
   }
 }
 
-export default Events;
+export default MyCommunity;

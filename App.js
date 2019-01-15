@@ -9,6 +9,7 @@ import EventsScreen from "./src/containers/EventsScreen";
 import FamilyTreeScreen from "./src/containers/FamilyTreeScreen";
 import GetStartedScreen from "./src/containers/GetStartedScreen";
 import ManageProfileScreen from "./src/containers/ManageProfileScreen";
+import MyCommunityScreen from "./src/containers/MyCommunityScreen";
 import RequestOtpScreen from "./src/containers/RequestOtpScreen";
 // import AddRelativeScreen from "./src/containers/AddRelativeScreen";
 // import AvatarScreen from "./src/containers/AvatarScreen";
@@ -32,7 +33,8 @@ const getAppNavigator = initialRouteName => {
       FamilyTreeScreen: { screen: FamilyTreeScreen },
       SelectCommunityScreen: { screen: SelectCommunityScreen },
       TabsScreen: { screen: TabsScreen },
-      EventsScreen: { screen: EventsScreen }
+      EventsScreen: { screen: EventsScreen },
+      MyCommunityScreen: { screen: MyCommunityScreen }
       // AddRelativeScreen: { screen: AddRelativeScreen },
       // UserDetailScreen: { screen: UserDetailScreen },
       // AvatarScreen: { screen: AvatarScreen },

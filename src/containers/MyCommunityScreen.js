@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Events from "../components/Community/Events";
+import MyCommunity from "../components/Community/MyCommunity";
 
 const mapStateToProps = state => ({
   loading: state.loading,
@@ -11,4 +11,4 @@ const mapDispatchToProps = dispatch => ({});
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Events);
+)(MyCommunity);
