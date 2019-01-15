@@ -1,43 +1,74 @@
 import { StyleSheet } from "react-native";
-import theme from "../../libs/theme";
+import theme from "../../../../libs/theme";
 
 export default StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: "#fff"
+  },
+  termsWrapper: {
+    backgroundColor: "#d80402"
+  },
+  termsIcon: {
+    color: "white",
+    marginRight: 5
+  },
+  termsHeader: {
+    fontWeight: "400",
+    fontFamily: theme.fonts.TitilliumWebSemiBold,
+    color: "white",
+    fontSize: 18
+  },
+  termsBody: {
     flex: 1
   },
-
-  newsWrapper: {
-    padding: 10,
-    flexDirection: "row",
-    borderBottomWidth: 1,
-    borderBottomColor: "#eee"
+  formWrapper: {
+    flex: 4,
+    flexDirection: "column",
+    marginTop: 20
   },
-
-  newsImageWrapper: {
-    margin: 5,
-    padding: 10,
-    justifyContent: "center",
+  inputWrapper: {
+    borderBottomWidth: 0
+  },
+  input: {
+    borderColor: "gray",
+    marginHorizontal: 20,
+    marginBottom: 10,
     borderWidth: 1,
-    borderColor: "gray"
+    borderRadius: 10,
+    paddingLeft: 20,
+    fontFamily: theme.fonts.TitilliumWebRegular
   },
-
-  newsImage: {
-    width: 80,
-    height: 80
+  buttonGroup: {
+    marginTop: 0
   },
-
-  newsTitle: {
+  buttonWrapper: {
+    justifyContent: "center",
+    borderBottomWidth: 0
+  },
+  submitButtonWrapper: {
+    marginTop: 30,
+    alignSelf: "center",
+    borderBottomWidth: 0
+  },
+  submitButton: {
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    backgroundColor: "#fff"
+  },
+  submitButtonDisabled: {
+    paddingHorizontal: 10,
+    paddingVertical: 20,
+    backgroundColor: "#ddd"
+  },
+  submitButtonText: {
+    textAlign: "center",
     fontFamily: theme.fonts.TitilliumWebSemiBold,
-    fontSize: 16
+    color: "#d80402"
   },
-
-  newsDescription: {
-    fontFamily: theme.fonts.TitilliumWebRegular,
-    fontSize: 14
-  },
-
-  newsDate: {
+  submitButtonTextDisabled: {
+    textAlign: "center",
     fontFamily: theme.fonts.TitilliumWebSemiBold,
-    fontSize: 12
+    color: "#ccc"
   }
 });

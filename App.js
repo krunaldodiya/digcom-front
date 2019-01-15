@@ -4,14 +4,14 @@ import { createAppContainer, createStackNavigator } from "react-navigation";
 import { Provider } from "react-redux";
 import NoNetwork from "./src/components/NoNetwork";
 // screens
-// import AccountListScreen from "./src/containers/AccountListScreen";
+import SearchDirectoryScreen from "./src/containers/SearchDirectoryScreen";
 import EventsScreen from "./src/containers/EventsScreen";
 import MyFamilyScreen from "./src/containers/MyFamilyScreen";
 import GetStartedScreen from "./src/containers/GetStartedScreen";
 import ManageProfileScreen from "./src/containers/ManageProfileScreen";
 import MyCommunityScreen from "./src/containers/MyCommunityScreen";
 import RequestOtpScreen from "./src/containers/RequestOtpScreen";
-// import AddRelativeScreen from "./src/containers/AddRelativeScreen";
+import FilterDirectoryScreen from "./src/containers/FilterDirectoryScreen";
 // import AvatarScreen from "./src/containers/AvatarScreen";
 import SelectCommunityScreen from "./src/containers/SelectCommunityScreen";
 // import SearchScreen from "./src/containers/SearchScreen";
@@ -34,13 +34,13 @@ const getAppNavigator = initialRouteName => {
       SelectCommunityScreen: { screen: SelectCommunityScreen },
       TabsScreen: { screen: TabsScreen },
       EventsScreen: { screen: EventsScreen },
-      MyCommunityScreen: { screen: MyCommunityScreen }
-      // AddRelativeScreen: { screen: AddRelativeScreen },
+      MyCommunityScreen: { screen: MyCommunityScreen },
+      SearchDirectoryScreen: { screen: SearchDirectoryScreen },
+      FilterDirectoryScreen: { screen: FilterDirectoryScreen },
       // UserDetailScreen: { screen: UserDetailScreen },
       // AvatarScreen: { screen: AvatarScreen },
       // SearchScreen: { screen: SearchScreen },
       // SettingsScreen: { screen: SettingsScreen },
-      // AccountListScreen: { screen: AccountListScreen },
     },
     {
       initialRouteName,

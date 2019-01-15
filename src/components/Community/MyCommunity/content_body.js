@@ -75,13 +75,7 @@ class ContentBody extends React.Component {
           <TouchableOpacity
             style={{ padding: 5, margin: 5 }}
             onPress={() => {
-              if (authUser.community) {
-                navigation.push("EventsScreen");
-              } else {
-                navigation.push("SelectCommunityScreen", {
-                  select_community: true
-                });
-              }
+              navigation.push("SearchDirectoryScreen");
             }}
           >
             <View style={{ flexDirection: "row" }}>
@@ -94,6 +88,7 @@ class ContentBody extends React.Component {
                   style={{ height: 50, width: 50 }}
                 />
               </View>
+
               <View style={{ marginLeft: 10 }}>
                 <Text
                   style={{

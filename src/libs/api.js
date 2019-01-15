@@ -17,7 +17,7 @@ const resource = {
     getUserById: `${httpUrl}/api/users/id`,
     updateUserContacts: `${httpUrl}/api/users/contacts/update`,
     updateUserProfile: `${httpUrl}/api/users/profile/update`,
-    getUsers: `${httpUrl}/api/users/all`,
+    getMembers: `${httpUrl}/api/users/all`,
     switchMember: `${httpUrl}/api/family/add`,
     addMember: `${httpUrl}/api/family/switch`,
     wallet: `${httpUrl}/api/wallet/info`,

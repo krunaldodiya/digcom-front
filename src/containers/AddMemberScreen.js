@@ -3,12 +3,12 @@ import AddFamily from "../components/Family/AddFamily";
 
 const mapStateToProps = state => ({
   loading: state.loading,
-  family: state.family
+  directory: state.directory
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleInput: dispatch.family.handleInput,
-  addMember: dispatch.family.addMember
+  handleInput: dispatch.directory.handleInput,
+  addMember: dispatch.directory.addMember
 });
 
 export default connect(

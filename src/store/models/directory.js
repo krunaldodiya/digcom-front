@@ -1,18 +1,11 @@
 import { api } from "../../libs/api";
 import { makeRequest } from "../../services";
 
-export const family = {
-  name: "family",
+export const directory = {
+  name: "directory",
   state: {
-    authUser: {
-      name: null,
-      dob: null,
-      gender: "Male",
-      avatar:
-        "https://res.cloudinary.com/marusamaj/image/upload/v1547011790/microsoft-avatar.png",
-      marital_status: "Single",
-      relation: null
-    },
+    authUser: null,
+    members: null,
     errors: null
   },
   reducers: {
@@ -22,11 +15,24 @@ export const family = {
   },
   effects: dispatch => {
     return {
+      async getMembers(payload) {
+        try {
+          const response = await makeRequest(api.getMembers);
+
+          const { data } = response;
+          const { users } = data;
+          console.log(users);
+        } catch (error) {
+          this.setAuthUser({ errors: error.response.data });
+        }
+      },
       async switchMember(payload) {
         const { member, navigation } = payload;
 
         try {
-          const response = await makeRequest(api.switchMember, { user_id: member.id });
+          const response = await makeRequest(api.switchMember, {
+            user_id: member.id
+          });
 
           const { data } = response;
           const { user, token } = data;

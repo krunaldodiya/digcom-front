@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import SearchDirectory from "../components/Community/Directory/SearchDirectory";
+import FilterDirectory from "../components/Community/Directory/FilterDirectory";
 
 const mapStateToProps = state => ({
   loading: state.loading,
@@ -8,10 +8,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getMembers: dispatch.directory.getMembers
+  
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SearchDirectory);
+)(FilterDirectory);

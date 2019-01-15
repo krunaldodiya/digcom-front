@@ -1,4 +1,13 @@
-import { Body, Button, Left, List, ListItem, Text, Thumbnail, View } from "native-base";
+import {
+  Body,
+  Button,
+  Left,
+  List,
+  ListItem,
+  Text,
+  Thumbnail,
+  View
+} from "native-base";
 import React from "react";
 import { FlatList } from "react-native-gesture-handler";
 import theme from "../../../../libs/theme";
@@ -62,7 +71,7 @@ class ContentBody extends React.Component {
                 fontFamily: theme.fonts.TitilliumWebRegular
               }}
             >
-              {user.age} {user.gender}, {user.marital_status}
+              {user.relation}
             </Text>
           </Body>
         </ListItem>
@@ -71,39 +80,19 @@ class ContentBody extends React.Component {
   };
 
   render() {
-    const { loading, users } = this.state;
-    const { navigation } = this.props;
+    const { navigation, auth } = this.props;
+    const { authUser } = auth;
 
     return (
       <View style={{ flex: 1 }}>
-        <View style={{ flex: 1 }}>
-          {!users.length && (
-            <View style={{ padding: 20 }}>
-              <Text
-                style={{
-                  color: "black",
-                  fontFamily: theme.fonts.TitilliumWebSemiBold,
-                  fontSize: 16
-                }}
-              >
-                {loading ? "Loading, please wait..." : "No Accounts"}
-              </Text>
-            </View>
-          )}
-
-          <FlatList
-            data={users}
-            renderItem={data => this.renderItem(data)}
-            keyExtractor={(_, index) => index.toString()}
-          />
-        </View>
+        <FlatList
+          data={authUser.family_members}
+          renderItem={data => this.renderItem(data)}
+          keyExtractor={(_, index) => index.toString()}
+        />
 
         <View style={{ margin: 20, alignSelf: "center" }}>
-          <Button
-            small
-            danger
-            onPress={() => null}
-          >
+          <Button small danger onPress={() => null}>
             <Text
               style={{
                 color: "white",
