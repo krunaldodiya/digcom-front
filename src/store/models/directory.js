@@ -5,8 +5,20 @@ export const directory = {
   name: "directory",
   state: {
     authUser: null,
-    members: null,
-    errors: null
+    data: [],
+    page: 1,
+    last_page: null,
+    total: null,
+    filters: {
+      keywords: null,
+      father_city: null,
+      mother_city: null,
+      gender: "Any",
+      marital_status: "Any"
+    },
+    errors: null,
+    loading: false,
+    loaded: false
   },
   reducers: {
     handleInput(state, payload) {

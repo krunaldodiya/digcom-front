@@ -102,8 +102,8 @@ class ContentBody extends React.Component {
 
   render() {
     const { refreshing } = this.state;
-    const { users, navigation, getMembers } = this.props;
-    const { data, loading, page, last_page } = users;
+    const { directory, navigation, getMembers } = this.props;
+    const { data, loading, page, last_page } = directory;
 
     return (
       <View style={{ flex: 1 }}>
@@ -111,8 +111,8 @@ class ContentBody extends React.Component {
           data={Object.values(data)}
           onEndReachedThreshold={5}
           onEndReached={() => {
-            if (users.last_page > users.page) {
-              getMembers({ page: users.page + 1 });
+            if (last_page > page) {
+              getMembers({ page: page + 1 });
             }
           }}
           ListFooterComponent={() => {
