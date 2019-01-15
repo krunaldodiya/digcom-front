@@ -6,7 +6,7 @@ import NoNetwork from "./src/components/NoNetwork";
 // screens
 // import AccountListScreen from "./src/containers/AccountListScreen";
 import EventsScreen from "./src/containers/EventsScreen";
-import FamilyTreeScreen from "./src/containers/FamilyTreeScreen";
+import MyFamilyScreen from "./src/containers/MyFamilyScreen";
 import GetStartedScreen from "./src/containers/GetStartedScreen";
 import ManageProfileScreen from "./src/containers/ManageProfileScreen";
 import MyCommunityScreen from "./src/containers/MyCommunityScreen";
@@ -30,7 +30,7 @@ const getAppNavigator = initialRouteName => {
       RequestOtpScreen: { screen: RequestOtpScreen },
       VerifyOtpScreen: { screen: VerifyOtpScreen },
       ManageProfileScreen: { screen: ManageProfileScreen },
-      FamilyTreeScreen: { screen: FamilyTreeScreen },
+      MyFamilyScreen: { screen: MyFamilyScreen },
       SelectCommunityScreen: { screen: SelectCommunityScreen },
       TabsScreen: { screen: TabsScreen },
       EventsScreen: { screen: EventsScreen },

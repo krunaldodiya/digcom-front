@@ -20,7 +20,7 @@ class ContentHeader extends React.Component {
 
         <Body>
           <Text numberOfLines={1} style={styles.termsHeader}>
-            Account List
+            My Family
           </Text>
         </Body>
 

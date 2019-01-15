@@ -111,7 +111,7 @@ class ContentBody extends React.Component {
                 fontSize: 14
               }}
             >
-              Add Account
+              Add Member
             </Text>
           </Button>
         </View>
