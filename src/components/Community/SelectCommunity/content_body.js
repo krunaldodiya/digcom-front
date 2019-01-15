@@ -22,10 +22,8 @@ class ContentBody extends React.Component {
   constructor(props) {
     super(props);
 
-    const { communities } = props;
-
     this.state = {
-      communities: communities.data
+      keywords: ""
     };
   }
 
@@ -33,14 +31,13 @@ class ContentBody extends React.Component {
     this.props.getCommunities();
   }
 
-  componentWillReceiveProps(props) {
-    const { communities } = props;
-
-    this.setState({ communities: communities.data });
-  }
-
-  filterCommunity = keywords => {
+  get selectedCommunity() {
     const { communities } = this.props;
+    const { keywords } = this.state;
+
+    if (keywords.length < 2) {
+      return communities.data;
+    }
 
     const regex = new RegExp(keywords, "gi");
 
@@ -48,8 +45,8 @@ class ContentBody extends React.Component {
       return community.name.match(regex);
     });
 
-    this.setState({ communities: filteredCommunities });
-  };
+    return filteredCommunities;
+  }
 
   renderItem = data => {
     const community = data.item;
@@ -134,7 +131,7 @@ class ContentBody extends React.Component {
             <Icon name="ios-search" />
             <Input
               placeholder="Search"
-              onChangeText={keywords => this.filterCommunity(keywords)}
+              onChangeText={keywords => this.setState({ keywords })}
             />
             <Icon name="ios-people" />
           </Item>
@@ -154,7 +151,7 @@ class ContentBody extends React.Component {
   };
 
   render() {
-    const { communities } = this.state;
+    const communities = this.selectedCommunity;
 
     return (
       <View style={{ flex: 1 }}>
