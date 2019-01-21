@@ -1,14 +1,10 @@
-{
-  "Both": [
-    "Brother",
-    "Son",
-    "Father",
-    "Husband",
-    "Sister",
-    "Daughter",
-    "Mother",
-    "Wife"
-  ],
-  "Male": ["Brother", "Son", "Father", "Husband"],
-  "Female": ["Sister", "Daughter", "Mother", "Wife"]
-}
+[
+  { "relation": "Brother", "gender": "Male" },
+  { "relation": "Son", "gender": "Male" },
+  { "relation": "Father", "gender": "Male" },
+  { "relation": "Husband", "gender": "Male" },
+  { "relation": "Sister", "gender": "Female" },
+  { "relation": "Daughter", "gender": "Female" },
+  { "relation": "Mother", "gender": "Female" },
+  { "relation": "Wife", "gender": "Female" }
+]

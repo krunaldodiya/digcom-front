@@ -1,6 +1,6 @@
 import React from "react";
 import { KeyboardAvoidingView, SafeAreaView } from "react-native";
-import Loader from "../../Shared/Loader";
+import Loader from "../../../Shared/Loader";
 import Content from "./content";
 import Header from "./header";
 

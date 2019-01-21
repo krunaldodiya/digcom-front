@@ -4,7 +4,6 @@ import { makeRequest } from "../../services";
 export const family = {
   name: "family",
   state: {
-    members: [],
     member: null,
     errors: null
   },
@@ -15,17 +14,6 @@ export const family = {
   },
   effects: dispatch => {
     return {
-      async getMembers(payload) {
-        try {
-          const response = await makeRequest(api.getMembers);
-
-          const { data } = response;
-          const { users } = data;
-          console.log(users);
-        } catch (error) {
-          this.setAuthUser({ errors: error.response.data });
-        }
-      },
       async removeMember(payload) {
         const { member, navigation } = payload;
 

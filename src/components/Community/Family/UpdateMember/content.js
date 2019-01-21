@@ -2,10 +2,10 @@ import { Button, Icon, Right, Thumbnail } from "native-base";
 import React from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { TextInputMask } from "react-native-masked-text";
-import theme from "../../../libs/theme";
-import { uploadAvatar } from "../../../services";
-import ListModal from "../../Shared/ListModal";
-import Switch from "../../Shared/Switch";
+import theme from "../../../../libs/theme";
+import { uploadAvatar } from "../../../../services";
+import ListModal from "../../../Shared/ListModal";
+import Switch from "../../../Shared/Switch";
 import styles from "./styles";
 
 class Content extends React.Component {

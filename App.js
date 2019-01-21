@@ -10,7 +10,7 @@ import EventsScreen from "./src/containers/EventsScreen";
 import FilterDirectoryScreen from "./src/containers/FilterDirectoryScreen";
 import GetStartedScreen from "./src/containers/GetStartedScreen";
 import ManageProfileScreen from "./src/containers/ManageProfileScreen";
-import MemberList from "./src/containers/MemberList";
+import MemberListScreen from "./src/containers/MemberListScreen";
 import MyCommunityScreen from "./src/containers/MyCommunityScreen";
 import RequestOtpScreen from "./src/containers/RequestOtpScreen";
 import SearchDirectoryScreen from "./src/containers/SearchDirectoryScreen";
@@ -29,7 +29,7 @@ const getAppNavigator = initialRouteName => {
       RequestOtpScreen: { screen: RequestOtpScreen },
       VerifyOtpScreen: { screen: VerifyOtpScreen },
       ManageProfileScreen: { screen: ManageProfileScreen },
-      MemberList: { screen: MemberList },
+      MemberListScreen: { screen: MemberListScreen },
       SelectCommunityScreen: { screen: SelectCommunityScreen },
       TabsScreen: { screen: TabsScreen },
       EventsScreen: { screen: EventsScreen },
