@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import MyFamily from "../components/Community/Family/MyFamily";
+import MemberList from "../components/Community/Family/MemberList";
 
 const mapStateToProps = state => ({
   loading: state.loading,
@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MyFamily);
+)(MemberList);

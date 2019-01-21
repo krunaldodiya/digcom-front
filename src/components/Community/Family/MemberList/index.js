@@ -4,7 +4,7 @@ import Loader from "../../../../components/Shared/Loader";
 import ContentBody from "./content_body";
 import ContentHeader from "./content_header";
 
-class MyFamily extends React.Component {
+class MemberList extends React.Component {
   render() {
     const { loading } = this.props;
 
@@ -18,4 +18,4 @@ class MyFamily extends React.Component {
   }
 }
 
-export default MyFamily;
+export default MemberList;

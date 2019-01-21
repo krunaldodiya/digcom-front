@@ -1,24 +1,17 @@
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import AddRelation from "../components/AddRelation";
-// import { addRelation } from "../store/actions";
+import UpdateMember from "../components/Community/Family/UpdateMember";
 
 const mapStateToProps = state => ({
   loading: state.loading,
-  auth: state.auth,
-  users: state.users,
+  auth: state.auth
 });
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    {
-      // addRelation: addRelation
-    },
-    dispatch
-  );
-};
+const mapDispatchToProps = dispatch => ({
+  login: dispatch.auth.login,
+  register: dispatch.auth.register
+});
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddRelation);
+)(UpdateMember);

@@ -2,23 +2,22 @@ import React from "react";
 import { NetInfo } from "react-native";
 import { createAppContainer, createStackNavigator } from "react-navigation";
 import { Provider } from "react-redux";
+// components
 import NoNetwork from "./src/components/NoNetwork";
 // screens
-import SearchDirectoryScreen from "./src/containers/SearchDirectoryScreen";
+import AddMemberScreen from "./src/containers/AddMemberScreen";
 import EventsScreen from "./src/containers/EventsScreen";
-import MyFamilyScreen from "./src/containers/MyFamilyScreen";
+import FilterDirectoryScreen from "./src/containers/FilterDirectoryScreen";
 import GetStartedScreen from "./src/containers/GetStartedScreen";
 import ManageProfileScreen from "./src/containers/ManageProfileScreen";
+import MemberList from "./src/containers/MemberList";
 import MyCommunityScreen from "./src/containers/MyCommunityScreen";
 import RequestOtpScreen from "./src/containers/RequestOtpScreen";
-import FilterDirectoryScreen from "./src/containers/FilterDirectoryScreen";
-// import AvatarScreen from "./src/containers/AvatarScreen";
+import SearchDirectoryScreen from "./src/containers/SearchDirectoryScreen";
 import SelectCommunityScreen from "./src/containers/SelectCommunityScreen";
-// import SearchScreen from "./src/containers/SearchScreen";
-// import SettingsScreen from "./src/containers/SettingsScreen";
 import TabsScreen from "./src/containers/TabsScreen";
+import UpdateMemberScreen from "./src/containers/UpdateMemberScreen";
 import VerifyOtpScreen from "./src/containers/VerifyOtpScreen";
-// import UserDetailScreen from "./src/containers/UserDetailScreen";
 // libs & services
 import { getInitialScreen } from "./src/libs/screen";
 import store from "./src/store";
@@ -30,17 +29,15 @@ const getAppNavigator = initialRouteName => {
       RequestOtpScreen: { screen: RequestOtpScreen },
       VerifyOtpScreen: { screen: VerifyOtpScreen },
       ManageProfileScreen: { screen: ManageProfileScreen },
-      MyFamilyScreen: { screen: MyFamilyScreen },
+      MemberList: { screen: MemberList },
       SelectCommunityScreen: { screen: SelectCommunityScreen },
       TabsScreen: { screen: TabsScreen },
       EventsScreen: { screen: EventsScreen },
       MyCommunityScreen: { screen: MyCommunityScreen },
       SearchDirectoryScreen: { screen: SearchDirectoryScreen },
       FilterDirectoryScreen: { screen: FilterDirectoryScreen },
-      // UserDetailScreen: { screen: UserDetailScreen },
-      // AvatarScreen: { screen: AvatarScreen },
-      // SearchScreen: { screen: SearchScreen },
-      // SettingsScreen: { screen: SettingsScreen },
+      AddMemberScreen: { screen: AddMemberScreen },
+      UpdateMemberScreen: { screen: UpdateMemberScreen }
     },
     {
       initialRouteName,

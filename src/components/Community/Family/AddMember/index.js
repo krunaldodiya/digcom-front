@@ -4,21 +4,18 @@ import Loader from "../../Shared/Loader";
 import ContentBody from "./content_body";
 import ContentHeader from "./content_header";
 
-class SelectRelation extends React.Component {
+class AddMember extends React.Component {
   render() {
-    const { loading, navigation } = this.props;
-    const { params } = navigation.state;
+    const { loading } = this.props;
 
-    const selected_community = params && params.selected_community;
-    
     return (
       <Container style={{ flex: 1 }}>
-        <Loader loading={loading.models.selectRelation} />
-        <ContentHeader {...this.props} selected_community={selected_community} />
-        <ContentBody {...this.props} selected_community={selected_community} />
+        <Loader loading={loading.models.family} />
+        <ContentHeader {...this.props} />
+        <ContentBody {...this.props} />
       </Container>
     );
   }
 }
 
-export default SelectRelation;
+export default AddMember;

@@ -4,7 +4,7 @@ import Loader from "../../Shared/Loader";
 import Content from "./content";
 import Header from "./header";
 
-class AddFamily extends React.Component {
+class UpdateMember extends React.Component {
   constructor(props) {
     super(props);
 
@@ -41,4 +41,4 @@ class AddFamily extends React.Component {
   }
 }
 
-export default AddFamily;
+export default UpdateMember;
