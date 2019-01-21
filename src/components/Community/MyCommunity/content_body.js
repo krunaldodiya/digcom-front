@@ -28,7 +28,7 @@ class ContentBody extends React.Component {
             style={{ padding: 5, margin: 5 }}
             onPress={() => {
               if (authUser.community) {
-                navigation.push("MyFamilyScreen");
+                navigation.push("MemberListScreen");
               } else {
                 navigation.push("SelectCommunityScreen", {
                   select_community: true
