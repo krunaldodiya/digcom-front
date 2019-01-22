@@ -1,10 +1,6 @@
 import {
   Body,
   Button,
-  Form,
-  Icon,
-  Input,
-  Item,
   Left,
   List,
   ListItem,
@@ -18,56 +14,40 @@ import React from "react";
 import { FlatList } from "react-native-gesture-handler";
 import theme from "../../../../libs/theme";
 
+import { httpUrl } from "../../../../libs/vars";
+
 class ContentBody extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      keywords: ""
+      keywords: "",
+      relations: []
     };
   }
 
   componentDidMount() {
-    this.props.getCommunities();
-  }
+    const relations = require("./relations.json");
 
-  get selectedCommunity() {
-    const { communities } = this.props;
-    const { keywords } = this.state;
-
-    if (keywords.length < 2) {
-      return communities.data;
-    }
-
-    const regex = new RegExp(keywords, "gi");
-
-    const filteredCommunities = communities.data.filter(community => {
-      return community.name.match(regex);
-    });
-
-    return filteredCommunities;
+    this.setState({ relations });
   }
 
   renderItem = data => {
-    const community = data.item;
-    const {
-      navigation,
-      loading,
-      selectCommunity,
-      select_community
-    } = this.props;
+    const { navigation } = this.props;
 
-    if (loading.models.communities) {
-      return false;
-    }
+    const relation = data.item;
+    const photo =
+      relation.gender == "Male"
+        ? `${httpUrl}/images/man.png`
+        : `${httpUrl}/images/woman.png`;
 
     return (
       <List style={{ backgroundColor: "white" }}>
         <ListItem avatar>
           <Left>
             <Thumbnail
-              source={{ uri: community.photo }}
-              style={{ width: 60, height: 60 }}
+              source={{ uri: photo }}
+              style={{ width: 50, height: 50 }}
             />
           </Left>
           <Body>
@@ -79,17 +59,7 @@ class ContentBody extends React.Component {
                 fontFamily: theme.fonts.TitilliumWebSemiBold
               }}
             >
-              {community.name}
-            </Text>
-            <Text
-              note
-              style={{
-                fontSize: 12,
-                color: "#333",
-                fontFamily: theme.fonts.TitilliumWebRegular
-              }}
-            >
-              ({community.members_count}) members
+              {relation.relation}
             </Text>
             <Text
               note
@@ -100,7 +70,7 @@ class ContentBody extends React.Component {
                 fontFamily: theme.fonts.TitilliumWebRegular
               }}
             >
-              {community.religion}
+              {relation.gender}
             </Text>
           </Body>
 
@@ -110,35 +80,14 @@ class ContentBody extends React.Component {
               rounded
               bordered
               onPress={() => {
-                selectCommunity({ navigation, community, select_community });
+                selectCommunity({ navigation, relation });
               }}
             >
-              <Text style={{ fontSize: 12 }}>select</Text>
+              <Text style={{ fontSize: 10 }}>select</Text>
             </Button>
           </Right>
         </ListItem>
       </List>
-    );
-  };
-
-  renderHeader = () => {
-    const { loading } = this.props;
-
-    return (
-      <View style={{ flex: 1 }}>
-        <Form>
-          <Item>
-            <Icon name="ios-search" />
-            <Input
-              placeholder="Search"
-              onChangeText={keywords => this.setState({ keywords })}
-            />
-            <Icon name="ios-people" />
-          </Item>
-        </Form>
-
-        {loading.models.communities && this.showLoader()}
-      </View>
     );
   };
 
@@ -151,15 +100,14 @@ class ContentBody extends React.Component {
   };
 
   render() {
-    const communities = this.selectedCommunity;
+    const { relations } = this.state;
 
     return (
       <View style={{ flex: 1 }}>
         <FlatList
-          data={communities}
+          data={relations}
           renderItem={data => this.renderItem(data)}
           keyExtractor={(_, index) => index.toString()}
-          ListHeaderComponent={this.renderHeader()}
         />
       </View>
     );

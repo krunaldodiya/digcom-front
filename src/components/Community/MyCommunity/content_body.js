@@ -27,13 +27,7 @@ class ContentBody extends React.Component {
           <TouchableOpacity
             style={{ padding: 5, margin: 5 }}
             onPress={() => {
-              if (authUser.community) {
-                navigation.push("MemberListScreen");
-              } else {
-                navigation.push("SelectCommunityScreen", {
-                  select_community: true
-                });
-              }
+              navigation.push("SearchDirectoryScreen");
             }}
           >
             <View style={{ flexDirection: "row" }}>
@@ -54,7 +48,7 @@ class ContentBody extends React.Component {
                     fontSize: 16
                   }}
                 >
-                  My Family
+                  Directory
                 </Text>
 
                 <Text
@@ -64,9 +58,7 @@ class ContentBody extends React.Component {
                     fontSize: 14
                   }}
                 >
-                  {family_members.length > 1
-                    ? `${family_members.length} members`
-                    : `${family_members.length} member`}
+                  1,540 members
                 </Text>
               </View>
             </View>
@@ -96,7 +88,7 @@ class ContentBody extends React.Component {
                     fontSize: 16
                   }}
                 >
-                  Directory
+                  Events
                 </Text>
 
                 <Text
@@ -106,7 +98,7 @@ class ContentBody extends React.Component {
                     fontSize: 14
                   }}
                 >
-                  1,540 members
+                  10 events
                 </Text>
               </View>
             </View>

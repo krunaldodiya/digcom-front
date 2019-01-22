@@ -166,7 +166,7 @@ Menu = props => {
           </TouchableOpacity>
         </View>
 
-        <View type="groups">
+        <View type="family">
           <View style={{ backgroundColor: "lightblue", padding: 15 }}>
             <Text
               style={{
@@ -175,14 +175,14 @@ Menu = props => {
                 color: "black"
               }}
             >
-              Groups
+              Family
             </Text>
           </View>
 
           <TouchableOpacity
             onPress={() => {
               toggleDrawer({ isOpen: false });
-              navigation.navigate("AddRelativeScreen");
+              navigation.push("MemberListScreen");
             }}
             style={{ marginTop: 15, marginBottom: 15, marginLeft: 15 }}
           >
@@ -193,14 +193,14 @@ Menu = props => {
                 fontSize: 14
               }}
             >
-              Create a Group
+              My Family
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             onPress={() => {
               toggleDrawer({ isOpen: false });
-              navigation.push("SettingsScreen");
+              navigation.push("AddMemberScreen");
             }}
             style={{ marginTop: 0, marginBottom: 0, marginLeft: 15 }}
           >
@@ -211,7 +211,7 @@ Menu = props => {
                 fontSize: 14
               }}
             >
-              Manage Groups
+              Add Member
             </Text>
           </TouchableOpacity>
         </View>

@@ -92,7 +92,7 @@ class ContentBody extends React.Component {
         />
 
         <View style={{ margin: 20, alignSelf: "center" }}>
-          <Button small danger onPress={() => null}>
+          <Button small danger onPress={() => navigation.push("AddMemberScreen")}>
             <Text
               style={{
                 color: "white",
