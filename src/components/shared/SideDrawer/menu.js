@@ -3,12 +3,11 @@ import React from "react";
 import { Alert, Linking, TouchableOpacity } from "react-native";
 import codePush from "react-native-code-push";
 import theme from "../../../libs/theme";
-import { httpUrl } from "../../../libs/vars";
 
 const app_id = "com.marusamaj";
 
 Menu = props => {
-  const { navigation, auth, toggleDrawer, register } = props;
+  const { navigation, auth, toggleDrawer } = props;
   const { authUser } = auth;
 
   return (
@@ -85,8 +84,8 @@ Menu = props => {
 
           <TouchableOpacity
             onPress={() => {
-              toggleDrawer({ isOpen: false });
               navigation.push("SettingsScreen");
+              toggleDrawer({ isOpen: false });
             }}
             style={{ marginTop: 15, marginBottom: 0, marginLeft: 15 }}
           >
@@ -121,7 +120,10 @@ Menu = props => {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => Linking.openURL(`${httpUrl}/terms`)}
+            onPress={() => {
+              navigation.push("HelpScreen");
+              toggleDrawer({ isOpen: false });
+            }}
             style={{ marginTop: 15, marginBottom: 15, marginLeft: 15 }}
           >
             <Text
@@ -131,37 +133,7 @@ Menu = props => {
                 fontSize: 14
               }}
             >
-              Terms & Privacy
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => Linking.openURL(`market://details?id=${app_id}`)}
-            style={{ marginTop: 0, marginBottom: 15, marginLeft: 15 }}
-          >
-            <Text
-              style={{
-                color: "#333",
-                fontFamily: theme.fonts.TitilliumWebRegular,
-                fontSize: 14
-              }}
-            >
-              About Us
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => Linking.openURL(`market://details?id=${app_id}`)}
-            style={{ marginTop: 0, marginBottom: 15, marginLeft: 15 }}
-          >
-            <Text
-              style={{
-                color: "#333",
-                fontFamily: theme.fonts.TitilliumWebRegular,
-                fontSize: 14
-              }}
-            >
-              Contact Us
+              Help
             </Text>
           </TouchableOpacity>
         </View>
@@ -181,8 +153,8 @@ Menu = props => {
 
           <TouchableOpacity
             onPress={() => {
-              toggleDrawer({ isOpen: false });
               navigation.push("MemberListScreen");
+              toggleDrawer({ isOpen: false });
             }}
             style={{ marginTop: 15, marginBottom: 15, marginLeft: 15 }}
           >
