@@ -26,18 +26,17 @@ class ContentBody extends React.Component {
   renderItem = data => {
     const user = data.item;
 
-    const { login, navigation, auth, removeMember } = this.props;
-    const { authUser } = auth;
+    const { editMember, navigation, removeMember } = this.props;
 
     return (
       <List>
         <ListItem
           avatar
           onPress={() => {
-            login({
-              authUser,
+            editMember({
               member: user,
-              navigation
+              navigation,
+              action: 'push'
             });
           }}
         >
@@ -77,12 +76,12 @@ class ContentBody extends React.Component {
               <Button
                 small
                 rounded
-                bordered
+                danger
                 onPress={() => removeMember({ member_id: user.id })}
               >
                 <Text
                   style={{
-                    fontSize: 10,
+                    fontSize: 12,
                     fontFamily: theme.fonts.TitilliumWebRegular
                   }}
                 >

@@ -3,12 +3,14 @@ import UpdateMember from "../components/Community/Family/UpdateMember";
 
 const mapStateToProps = state => ({
   loading: state.loading,
-  auth: state.auth
+  auth: state.auth,
+  family: state.family
 });
 
 const mapDispatchToProps = dispatch => ({
-  login: dispatch.auth.login,
-  register: dispatch.auth.register
+  handleInput: dispatch.family.handleInput,
+  updateMember: dispatch.family.updateMember,
+  editMember: dispatch.family.editMember
 });
 
 export default connect(

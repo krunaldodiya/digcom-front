@@ -10,6 +10,9 @@ export const family = {
   reducers: {
     handleInput(state, payload) {
       return { ...state, ...payload };
+    },
+    setMember(state, payload) {
+      return { ...state, ...payload };
     }
   },
   effects: dispatch => {
@@ -28,6 +31,7 @@ export const family = {
           console.log(error);
         }
       },
+
       async addMember(payload) {
         const { navigation, relation } = payload;
 
@@ -38,27 +42,47 @@ export const family = {
           const { user } = data;
 
           dispatch.auth.setAuthUser({ authUser: user });
-
-          navigation.replace("UpdateMemberScreen", { member: user });
+          dispatch.family.editMember({
+            member: user,
+            navigation,
+            action: "replace"
+          });
         } catch (error) {
           console.log(error);
         }
       },
+
       async updateMember(payload) {
-        const { navigation, authUser } = payload;
+        const { navigation, member } = payload;
 
         try {
-          const response = await makeRequest(api.updateMember, authUser);
+          const response = await makeRequest(api.updateMember, {
+            member
+          });
 
           const { data } = response;
-          const { user, token } = data;
+          const { user } = data;
 
           dispatch.auth.setAuthUser({ authUser: user, errors: null });
-          await setAuthToken(token);
-
           navigation.pop();
         } catch (error) {
           this.setAuthUser({ errors: error.response.data });
+        }
+      },
+      
+      async editMember(payload) {
+        const { navigation, member, action } = payload;
+
+        dispatch.family.setMember({ member });
+
+        if (navigation) {
+          if (action === "replace") {
+            navigation.replace("UpdateMemberScreen");
+          }
+
+          if (action === "push") {
+            navigation.push("UpdateMemberScreen");
+          }
         }
       }
     };

@@ -1,8 +1,8 @@
 import React from "react";
 import { KeyboardAvoidingView, SafeAreaView } from "react-native";
 import Loader from "../../../Shared/Loader";
-import Content from "./content";
-import Header from "./header";
+import ContentBody from "./content_body";
+import ContentHeader from "./content_header";
 
 class UpdateMember extends React.Component {
   constructor(props) {
@@ -29,9 +29,9 @@ class UpdateMember extends React.Component {
           style={{ flex: 1 }}
           contentContainerStyle={{ flex: 1 }}
         >
-          <Loader loading={loading.effects.directory.addMember} />
-          <Header {...this.props} />
-          <Content
+          <Loader loading={loading.models.family} />
+          <ContentHeader {...this.props} />
+          <ContentBody
             {...this.props}
             toggleKeyboardAvoidView={this.toggleKeyboardAvoidView}
           />

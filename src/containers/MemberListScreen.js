@@ -4,11 +4,12 @@ import MemberList from "../components/Community/Family/MemberList";
 const mapStateToProps = state => ({
   loading: state.loading,
   auth: state.auth,
-  family: state.family,
+  family: state.family
 });
 
 const mapDispatchToProps = dispatch => ({
-  removeMember: dispatch.family.removeMember
+  removeMember: dispatch.family.removeMember,
+  editMember: dispatch.family.editMember
 });
 
 export default connect(

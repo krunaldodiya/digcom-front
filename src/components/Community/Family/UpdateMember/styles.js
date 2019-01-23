@@ -3,30 +3,24 @@ import theme from "../../../../libs/theme";
 
 export default StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "#fff"
   },
   termsWrapper: {
-    justifyContent: "space-between",
-    flexDirection: "row",
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "black"
+    backgroundColor: "#d80402"
+  },
+  termsIcon: {
+    color: "white",
+    marginRight: 5
   },
   termsHeader: {
     fontWeight: "400",
     fontFamily: theme.fonts.TitilliumWebSemiBold,
-    color: "black",
-    fontSize: 16,
-    textAlign: "center"
+    color: "white",
+    fontSize: 18
   },
-  topImageWrapper: {
-    alignItems: "center",
-    padding: 50,
-    backgroundColor: "#006feb"
-  },
-  topImage: {
-    width: 120,
-    height: 120
+  termsBody: {
+    flex: 1
   },
   formWrapper: {
     marginTop: 20,

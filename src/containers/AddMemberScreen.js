@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addMember: dispatch.family.addMember
+  addMember: dispatch.family.addMember,
+  editMember: dispatch.family.editMember
 });
 
 export default connect(
