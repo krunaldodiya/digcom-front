@@ -33,7 +33,7 @@ class ContentBody extends React.Component {
   }
 
   renderItem = data => {
-    const { navigation } = this.props;
+    const { navigation, addMember } = this.props;
 
     const relation = data.item;
     const photo =
@@ -80,7 +80,7 @@ class ContentBody extends React.Component {
               rounded
               bordered
               onPress={() => {
-                selectCommunity({ navigation, relation });
+                addMember({ navigation, relation });
               }}
             >
               <Text style={{ fontSize: 10 }}>select</Text>

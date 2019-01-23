@@ -3,12 +3,12 @@ import AddMember from "../components/Community/Family/AddMember";
 
 const mapStateToProps = state => ({
   loading: state.loading,
-  directory: state.directory
+  auth: state.auth,
+  family: state.family
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleInput: dispatch.directory.handleInput,
-  addMember: dispatch.directory.addMember
+  addMember: dispatch.family.addMember
 });
 
 export default connect(

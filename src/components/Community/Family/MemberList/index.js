@@ -10,7 +10,7 @@ class MemberList extends React.Component {
 
     return (
       <Container style={{ flex: 1 }}>
-        <Loader loading={loading.models.auth} />
+        <Loader loading={loading.models.family} />
         <ContentHeader {...this.props} />
         <ContentBody {...this.props} />
       </Container>

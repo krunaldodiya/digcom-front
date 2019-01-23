@@ -3,12 +3,12 @@ import MemberList from "../components/Community/Family/MemberList";
 
 const mapStateToProps = state => ({
   loading: state.loading,
-  auth: state.auth
+  auth: state.auth,
+  family: state.family,
 });
 
 const mapDispatchToProps = dispatch => ({
-  login: dispatch.auth.login,
-  register: dispatch.auth.register
+  removeMember: dispatch.family.removeMember
 });
 
 export default connect(

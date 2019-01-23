@@ -15,39 +15,33 @@ export const family = {
   effects: dispatch => {
     return {
       async removeMember(payload) {
-        const { member, navigation } = payload;
+        const { member_id } = payload;
 
         try {
-          const response = await makeRequest(api.removeMember, {
-            user_id: member.id
-          });
+          const response = await makeRequest(api.removeMember, { member_id });
 
           const { data } = response;
-          const { user, token } = data;
+          const { user } = data;
 
           dispatch.auth.setAuthUser({ authUser: user, errors: null });
-          await setAuthToken(token);
-
-          navigation.pop();
         } catch (error) {
-          dispatch.auth.setAuthUser({ errors: error.response.data });
+          console.log(error);
         }
       },
       async addMember(payload) {
-        const { navigation, authUser } = payload;
+        const { navigation, relation } = payload;
 
         try {
-          const response = await makeRequest(api.addMember, authUser);
+          const response = await makeRequest(api.addMember, relation);
 
           const { data } = response;
-          const { user, token } = data;
+          const { user } = data;
 
-          dispatch.auth.setAuthUser({ authUser: user, errors: null });
-          await setAuthToken(token);
+          dispatch.auth.setAuthUser({ authUser: user });
 
-          navigation.pop();
+          navigation.replace("UpdateMemberScreen", { member: user });
         } catch (error) {
-          this.setAuthUser({ errors: error.response.data });
+          console.log(error);
         }
       },
       async updateMember(payload) {

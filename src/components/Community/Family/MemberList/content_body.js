@@ -4,6 +4,7 @@ import {
   Left,
   List,
   ListItem,
+  Right,
   Text,
   Thumbnail,
   View
@@ -25,16 +26,11 @@ class ContentBody extends React.Component {
   renderItem = data => {
     const user = data.item;
 
-    const { login, navigation, auth } = this.props;
+    const { login, navigation, auth, removeMember } = this.props;
     const { authUser } = auth;
 
     return (
-      <List
-        style={{
-          backgroundColor:
-            authUser && authUser.id === user.id ? "#eee" : "white"
-        }}
-      >
+      <List>
         <ListItem
           avatar
           onPress={() => {
@@ -51,6 +47,7 @@ class ContentBody extends React.Component {
               style={{ width: 40, height: 40 }}
             />
           </Left>
+
           <Body>
             <Text
               numberOfLines={1}
@@ -60,7 +57,7 @@ class ContentBody extends React.Component {
                 fontFamily: theme.fonts.TitilliumWebSemiBold
               }}
             >
-              {user.name}
+              {user.name || "No Name"}
             </Text>
             <Text
               note
@@ -74,6 +71,26 @@ class ContentBody extends React.Component {
               {user.relation}
             </Text>
           </Body>
+
+          <Right style={{ justifyContent: "center" }}>
+            {user.relation !== "Self" && (
+              <Button
+                small
+                rounded
+                bordered
+                onPress={() => removeMember({ member_id: user.id })}
+              >
+                <Text
+                  style={{
+                    fontSize: 10,
+                    fontFamily: theme.fonts.TitilliumWebRegular
+                  }}
+                >
+                  Delete
+                </Text>
+              </Button>
+            )}
+          </Right>
         </ListItem>
       </List>
     );
@@ -92,7 +109,11 @@ class ContentBody extends React.Component {
         />
 
         <View style={{ margin: 20, alignSelf: "center" }}>
-          <Button small danger onPress={() => navigation.push("AddMemberScreen")}>
+          <Button
+            small
+            danger
+            onPress={() => navigation.push("AddMemberScreen")}
+          >
             <Text
               style={{
                 color: "white",
