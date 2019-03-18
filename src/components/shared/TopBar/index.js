@@ -3,8 +3,7 @@ import React from "react";
 import styles from "./styles";
 
 const TopBar = props => {
-  const { toggleDrawer, navigation, auth } = props;
-  const { authUser } = auth;
+  const { toggleDrawer, navigation } = props;
 
   return (
     <Header
@@ -21,7 +20,7 @@ const TopBar = props => {
         />
       </Left>
       <Body>
-        <Title>IndiCom</Title>
+        <Title>DigiCom</Title>
       </Body>
       <Right>
         <Icon
